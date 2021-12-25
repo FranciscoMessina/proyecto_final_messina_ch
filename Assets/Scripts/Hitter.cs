@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Hitter : MonoBehaviour
 {
-    private Transform _playerPosition = GameManager.instance.playerPosition;
+    private Transform _playerPosition; 
     [SerializeField] private float speed = 5;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _playerPosition = GameManager.instance.playerPosition;
     }
 
     // Update is called once per frame
