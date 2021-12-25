@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float sideSpeed;
@@ -16,6 +16,7 @@ public class PlayerControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.GetPlayerPosition(this.transform);
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
     }
