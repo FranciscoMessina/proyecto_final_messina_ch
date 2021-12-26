@@ -8,9 +8,15 @@ public class Caster : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5;
     private Animator _anim;
 
+    [SerializeField] private GameObject bloodSpell;
+    [SerializeField] private float spellSpeed;
+    [SerializeField] private Transform spellSpawnPoint;
+
     [SerializeField] private float castDelay;
     private float castCooldown;
     private bool canCast;
+
+    private Quaternion rotation;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +27,9 @@ public class Caster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canCast == false && castCooldown >= 0)
+        rotation = Quaternion.LookRotation(target.position - transform.position);
+
+        if (canCast == false && castCooldown >= 0)
         {
             castCooldown -= Time.deltaTime;
         }
@@ -45,7 +53,7 @@ public class Caster : MonoBehaviour
     public void Move()
     {
 
-        Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
+        rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         _anim.SetFloat("rotate", 1);
 
@@ -54,7 +62,16 @@ public class Caster : MonoBehaviour
 
     private void Cast()
     {
+        Invoke("CastSpell", .6f);
         _anim.SetTrigger("cast");
+    }
+
+    private void CastSpell()
+    {
+        GameObject newspell = Instantiate(bloodSpell, spellSpawnPoint.position, rotation) as GameObject;
+        Rigidbody spellRB = newspell.GetComponent<Rigidbody>();
+
+        spellRB.velocity = this.transform.forward * spellSpeed;
     }
 
     public void Die()

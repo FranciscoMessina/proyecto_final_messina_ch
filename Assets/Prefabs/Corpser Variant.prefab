@@ -92,7 +92,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rotationSpeed: 5
-  castTimer: 3
+  bloodSpell: {fileID: 7555963768277070994, guid: 10a7d95a8a6d0ad4c96fa385d5efeca6, type: 3}
+  spellSpeed: 0
+  spellSpawnPoint: {fileID: 9198289367424498305}
+  castDelay: 0
 --- !u!1001 &2703119815538342942
 PrefabInstance:
   m_ObjectHideFlags: 0

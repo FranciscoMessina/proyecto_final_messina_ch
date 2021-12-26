@@ -3606,6 +3606,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 946598830}
+    - target: {fileID: 5438723270121860919, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
+      propertyPath: castDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438723270121860919, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
+      propertyPath: spellSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
 --- !u!1001 &761712883
@@ -4237,15 +4245,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 160961184251457703, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0025613531
+      value: -0.0025613457
       objectReference: {fileID: 0}
     - target: {fileID: 160961184251457703, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0014303189
+      value: 0.0014303185
       objectReference: {fileID: 0}
     - target: {fileID: 160961184251457703, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00023275349
+      value: -0.00023275334
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4369,11 +4377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2996157498713533461, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0014378314
+      value: 0.0014378312
       objectReference: {fileID: 0}
     - target: {fileID: 2996157498713533461, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00018064375
+      value: -0.00018064372
       objectReference: {fileID: 0}
     - target: {fileID: 6433858961555992230, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_XAxis.m_Wrap
@@ -4385,7 +4393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6433858961555992230, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_YAxis.m_MaxSpeed
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6433858961555992230, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_XAxis.m_SpeedMode

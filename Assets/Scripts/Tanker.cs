@@ -8,32 +8,59 @@ public class Tanker : MonoBehaviour
 
     [SerializeField] private float speed = 5;    
     [SerializeField] private float rotationSpeed = 5;
+    [SerializeField] private float maxFollowDistance = 50;
+    [SerializeField] private float minFollowDistance = 4;
+
+    
+    private float distance;
+
+    private Animator _anim;
+
+    [SerializeField] private float attackDelay;
+    private float attackCooldown;
+    private bool canAttack;
 
     // Start is called before the first frame update
     void Start()
     {
+        _anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        distance = Vector3.Distance(transform.position, target.position);
+
+        if (canAttack == false && attackCooldown >= 0) attackCooldown -= Time.deltaTime;
+        else if (canAttack == false && attackCooldown <= 0) canAttack = true;
+    }
+
+    private void FixedUpdate()
+    {
         Move();
-        
+        Attack();
     }
 
     public void Move()
     {
-        var direction = (target.position -  transform.position).normalized;
+        var direction = (target.position - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-        var distance = Vector3.Distance(transform.position, target.position);
-
-        if (distance < 50)
+        if (distance < maxFollowDistance && distance >= minFollowDistance)
         {
-            if(distance >= 3) transform.position += direction * speed * Time.deltaTime;
+            transform.position += direction * speed * Time.deltaTime;
         }
 
+    }
+
+    private void Attack()
+    {
+        if (distance < minFollowDistance)
+        {
+            _anim.SetTrigger("attack");
+            canAttack = false;
+            attackCooldown = attackDelay;
+        }
     }
 }
 

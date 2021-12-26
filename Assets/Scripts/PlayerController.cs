@@ -91,7 +91,6 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         Invoke("CastSpell", .6f);
-        //GameObject newspell = Instantiate(iceSpell, spellSpawnPoint.position, this.transform.rotation) as GameObject;
         _anim.SetTrigger("SpellTrig");
         canShoot = false;
         Debug.Log("Shoot called");
