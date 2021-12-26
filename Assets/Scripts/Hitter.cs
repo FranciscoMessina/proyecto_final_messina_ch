@@ -8,6 +8,10 @@ public class Hitter : MonoBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] private float rotationSpeed = 5;
 
+    [SerializeField] private float maxFollowDistance = 50;
+    [SerializeField] private float minFollowDistance = 4;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +31,9 @@ public class Hitter : MonoBehaviour
 
         var distance = Vector3.Distance(transform.position, target.position);
 
-        if (distance < 25)
+        if (distance < maxFollowDistance && distance >= minFollowDistance)
         {
-            if(distance >= 3) transform.position += direction * speed * Time.deltaTime;
+            transform.position += direction * speed * Time.deltaTime;
         }
 
     }

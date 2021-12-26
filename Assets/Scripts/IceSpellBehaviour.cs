@@ -5,7 +5,6 @@ using UnityEngine;
 public class IceSpellBehaviour : MonoBehaviour
 {
     [SerializeField] private float timeOnScreen;
-    public float spellSpeed = 8;
 
 
     // Start is called before the first frame update
