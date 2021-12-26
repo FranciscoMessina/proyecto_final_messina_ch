@@ -15,11 +15,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Terrain
+  - Player
+  - Enemies
+  - Objects
+  - Attacks
   - 
   - 
   - 

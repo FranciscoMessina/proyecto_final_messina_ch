@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7487167886706488285}
   - component: {fileID: 3015051298469355776}
   - component: {fileID: 4733809463650773347}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IceSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4455999618660815017}
   - component: {fileID: 7975086998559034815}
   - component: {fileID: 1949712524957800038}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IceBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4905,7 +4905,7 @@ GameObject:
   - component: {fileID: 575054449033439778}
   - component: {fileID: 1578566526160771202}
   - component: {fileID: 648982851951245583}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IceSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

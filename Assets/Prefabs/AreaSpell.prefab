@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -5951133880890099453}
   - component: {fileID: 5815672648472638263}
   - component: {fileID: 5659254958528301907}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AreaSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4302909642774749635}
   - component: {fileID: 5340242439495271900}
   - component: {fileID: 8587337417897038333}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

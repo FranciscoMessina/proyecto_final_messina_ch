@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6121953696520778008}
   - component: {fileID: 352955820570364934}
   - component: {fileID: 1904550063299181077}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 317545894397488522}
   - component: {fileID: 733015456943327674}
   - component: {fileID: 6946047185453661926}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: 1908484074978037486}
   - component: {fileID: 7973780043960522431}
   - component: {fileID: 464783336710570211}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BloodSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
