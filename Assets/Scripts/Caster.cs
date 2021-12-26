@@ -5,7 +5,6 @@ using UnityEngine;
 public class Caster : MonoBehaviour
 {
     [SerializeField] private Transform target; 
-    [SerializeField] private float speed = 5;
     [SerializeField] private float rotationSpeed = 5;
 
     // Start is called before the first frame update
