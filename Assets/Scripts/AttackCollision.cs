@@ -29,23 +29,30 @@ public class AttackCollision : MonoBehaviour
     {
         Debug.Log("Object Collision");
         Destroy(other.gameObject);
+        Destroy(this.gameObject);
     }
 
     private void TankerDamage(Collision other)
     {
         Debug.Log("Tanker Collision");
         Destroy(other.gameObject);
+        Destroy(this.gameObject);
+
     }
 
     private void CasterDamage(Collision other)
     {
         Debug.Log("Caster Collision");
         Destroy(other.gameObject);
+        Destroy(this.gameObject);
+
     }
 
     private void HitterDamage(Collision other)
     {
         Debug.Log("Hitter Collision");
         Destroy(other.gameObject);
+        Destroy(this.gameObject);
+
     }
 }

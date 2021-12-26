@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 662456816089060983}
   - component: {fileID: -5951133880890099453}
   - component: {fileID: 5815672648472638263}
+  - component: {fileID: 5659254958528301907}
   m_Layer: 0
   m_Name: AreaSpell
   m_TagString: Untagged
@@ -41,7 +42,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712808682357162713}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 38
@@ -59,6 +60,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOnScreen: 1.1
+--- !u!114 &5659254958528301907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712808682357162713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b90406f58eede4dbef3f1bf45c1381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8570723980899936283
 GameObject:
   m_ObjectHideFlags: 0

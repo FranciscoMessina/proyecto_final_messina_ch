@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1521cd9a99c37349b028dfc2a9829ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2972461362480373746, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
+  target: {fileID: 0}
   speed: 5
   rotationSpeed: 5
 --- !u!1 &8753175336351643977
@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
       propertyPath: m_LocalPosition.y
@@ -155,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
       propertyPath: m_LocalRotation.w
@@ -188,6 +188,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
       propertyPath: m_Name
       value: Tanker Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
+      propertyPath: m_TagString
+      value: Tanker
       objectReference: {fileID: 0}
     - target: {fileID: 3802392452450634905, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
       propertyPath: m_RootBone
