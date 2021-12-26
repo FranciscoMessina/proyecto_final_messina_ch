@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _cM = GetComponent<CinemachineTouchInputMapper>();
 
+        GameManager.instance.GetPlayerReference(this);
 
 
     }

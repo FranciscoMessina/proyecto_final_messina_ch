@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {   
     public static GameManager instance;
 
-    public Transform playerPosition;
+    public PlayerController player;
 
     private void Awake()
     {
@@ -31,8 +31,12 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void GetPlayerPosition(Transform playerPos)
+    public void GetPlayerReference(PlayerController player)
     {
-        this.playerPosition = playerPos;
+        this.player = player;
+    }
+
+    public PlayerController GetPlayerReference() {
+        return this.player;
     }
 }
