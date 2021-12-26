@@ -25,12 +25,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float spellSpeed;
     [SerializeField] private Transform spellSpawnPoint;
 
+    [SerializeField] private GameObject areaSpell;
+
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
-        _cM = GetComponent<CinemachineTouchInputMapper>();
+        //_cM = GetComponent<CinemachineTouchInputMapper>();
 
 
 
@@ -51,6 +53,15 @@ public class PlayerController : MonoBehaviour
         {
             canShoot = true;
         }
+
+        if (canArea == false && areaTimer >= 0)
+        {
+            areaTimer -= Time.deltaTime;
+        }
+        else if (canArea == false && areaTimer <= 0)
+        {
+            canArea = true;
+        }
     }
 
 
@@ -65,9 +76,10 @@ public class PlayerController : MonoBehaviour
             shootTimer = shootDelay;
         }
 
-        else if (Input.GetMouseButtonDown(1) && canArea)
+        else if (Input.GetButton("Fire2") && canArea)
         {
-            _anim.SetInteger("AnimNum", 5);
+            Area();
+            areaTimer = areaDelay;
         }
 
 
@@ -78,7 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         Invoke("CastSpell", .6f);
         //GameObject newspell = Instantiate(iceSpell, spellSpawnPoint.position, this.transform.rotation) as GameObject;
-        _anim.SetInteger("AnimNum", 4);
+        _anim.SetTrigger("SpellTrig");
         canShoot = false;
         Debug.Log("Shoot called");
     }
@@ -91,30 +103,29 @@ public class PlayerController : MonoBehaviour
         spellRB.velocity = this.transform.forward * spellSpeed;
     }
 
+    void Area()
+    {
+        Invoke("CastArea", 1f);
+        _anim.SetTrigger("AreaTrig");
+        canArea = false;
+        Debug.Log("Area called");
+    }
+
+    private void CastArea()
+    {
+        GameObject newarea = Instantiate(areaSpell, this.transform.position, this.transform.rotation) as GameObject;
+    }
+
     void Walk()
     {
-        if (Input.GetButton("Vertical"))
-        {
+        _anim.SetFloat("MoveZ", Input.GetAxis("Horizontal"));
+        _anim.SetFloat("MoveX", Input.GetAxis("Vertical"));
 
-            if (Input.GetAxis("Vertical") == -1) { _anim.SetInteger("AnimNum", -1); }
-            else if (Input.GetAxis("Vertical") == 1) { _anim.SetInteger("AnimNum", 1); }
-        }
-        else if (Input.GetButton("Horizontal"))
-        {
-
-
-            if (Input.GetAxis("Horizontal") == -1) { _anim.SetInteger("AnimNum", -2); }
-            else if (Input.GetAxis("Horizontal") == 1) { _anim.SetInteger("AnimNum", 2); }
-        }
-        else
-        {
-            _anim.SetInteger("AnimNum", 0);
-        }
+        //if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0) { _anim.SetInteger("AnimNum", 0); }
+        
 
         Vector3 forward = this.transform.forward * vInput * Time.fixedDeltaTime;
-
         Vector3 sideways = this.transform.right * hInput * Time.fixedDeltaTime;
-
         _rb.MovePosition(this.transform.position + forward + sideways);
     }
 }
