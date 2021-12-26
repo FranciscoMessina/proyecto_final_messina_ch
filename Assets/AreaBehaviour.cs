@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceSpellBehaviour : MonoBehaviour
+public class AreaBehaviour : MonoBehaviour
 {
     [SerializeField] private float timeOnScreen;
-<<<<<<< HEAD
-    public float spellSpeed = 8;
-=======
->>>>>>> Main-Character-New-Animations
 
 
     // Start is called before the first frame update
