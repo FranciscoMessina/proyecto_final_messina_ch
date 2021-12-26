@@ -29,7 +29,7 @@ public class Tanker : MonoBehaviour
 
         var distance = Vector3.Distance(transform.position, target.position);
 
-        if (distance < 25)
+        if (distance < 50)
         {
             if(distance >= 3) transform.position += direction * speed * Time.deltaTime;
         }

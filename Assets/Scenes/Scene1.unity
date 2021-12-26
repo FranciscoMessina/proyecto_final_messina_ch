@@ -4868,6 +4868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tanker Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3675126178640670438, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4056471563974603868, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
       propertyPath: m_RootOrder
       value: 1

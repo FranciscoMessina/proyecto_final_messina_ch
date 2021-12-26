@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float vInput;
     private float hInput;
 
+    [SerializeField] private Camera GameCamera;
     private Animator _anim;
 
     private bool canShoot = true;
@@ -32,7 +33,6 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
-        //_cM = GetComponent<CinemachineTouchInputMapper>();
 
         GameManager.instance.GetPlayerReference(this);
 
@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
     {
 
         Walk();
+        Rotate();
 
         if (Input.GetButton("Fire1") && canShoot)
         {
@@ -128,5 +129,15 @@ public class PlayerController : MonoBehaviour
         Vector3 forward = this.transform.forward * vInput * Time.fixedDeltaTime;
         Vector3 sideways = this.transform.right * hInput * Time.fixedDeltaTime;
         _rb.MovePosition(this.transform.position + forward + sideways);
+    }
+
+    void Rotate()
+    {
+        var CharacterRotation = GameCamera.transform.rotation;
+        CharacterRotation.x = 0;
+        CharacterRotation.z = 0;
+
+        this.transform.rotation = CharacterRotation;
+        
     }
 }
