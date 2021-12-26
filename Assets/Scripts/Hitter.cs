@@ -11,16 +11,33 @@ public class Hitter : MonoBehaviour
     [SerializeField] private float maxFollowDistance = 50;
     [SerializeField] private float minFollowDistance = 4;
 
+    private float distance;
+
+    private Animator _anim;
+
+    [SerializeField] private float attackDelay;
+    private float attackCooldown;
+    private bool canAttack;
 
     // Start is called before the first frame update
     void Start()
     {
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        distance = Vector3.Distance(transform.position, target.position);
+
+        if (canAttack == false && attackCooldown >= 0) attackCooldown -= Time.deltaTime;
+        else if (canAttack == false && attackCooldown <= 0) canAttack = true;
+    }
+
+    private void FixedUpdate()
+    {
         Move();
+        Attack();
     }
 
     public void Move()
@@ -29,13 +46,21 @@ public class Hitter : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-        var distance = Vector3.Distance(transform.position, target.position);
-
         if (distance < maxFollowDistance && distance >= minFollowDistance)
         {
             transform.position += direction * speed * Time.deltaTime;
         }
 
+    }
+
+    private void Attack()
+    {
+        if (distance < minFollowDistance)
+        {
+            _anim.SetTrigger("attack");
+            canAttack = false;
+            attackCooldown = attackDelay;
+        }
     }
 }
 
