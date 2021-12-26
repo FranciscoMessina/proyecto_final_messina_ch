@@ -48,8 +48,10 @@ public class Hitter : MonoBehaviour
 
         if (distance < maxFollowDistance && distance >= minFollowDistance)
         {
+            _anim.SetInteger("hAnim", 1);
             transform.position += direction * speed * Time.deltaTime;
         }
+        else _anim.SetInteger("hAnim", 0);
 
     }
 

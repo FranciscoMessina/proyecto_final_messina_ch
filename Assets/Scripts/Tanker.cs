@@ -48,8 +48,10 @@ public class Tanker : MonoBehaviour
 
         if (distance < maxFollowDistance && distance >= minFollowDistance)
         {
+            _anim.SetInteger("tAnim", 1);
             transform.position += direction * speed * Time.deltaTime;
         }
+        else _anim.SetInteger("tAnim", 0);
 
     }
 
