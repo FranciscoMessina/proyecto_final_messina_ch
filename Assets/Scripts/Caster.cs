@@ -8,6 +8,10 @@ public class Caster : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5;
     private Animator _anim;
 
+    [SerializeField] private float castDelay;
+    private float castCooldown;
+    private bool canCast;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +21,25 @@ public class Caster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(canCast == false && castCooldown >= 0)
+        {
+            castCooldown -= Time.deltaTime;
+        }
+        else if(canCast == false && castCooldown <= 0)
+        {
+            canCast = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
         Move();
+        if (canCast == true)
+        {
+            Cast();
+            canCast = false;
+            castCooldown = castDelay;
+        }
     }
 
     public void Move()
@@ -28,6 +50,11 @@ public class Caster : MonoBehaviour
         _anim.SetFloat("rotate", 1);
 
 
+    }
+
+    private void Cast()
+    {
+        _anim.SetTrigger("cast");
     }
 
     public void Die()
