@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Caster : MonoBehaviour
 {
+    private GameManager _gm;
     [SerializeField] private Transform target; 
     [SerializeField] private float rotationSpeed = 5;
     private Animator _anim;
@@ -22,6 +23,7 @@ public class Caster : MonoBehaviour
     void Start()
     {
         _anim = GetComponent<Animator>();
+        _gm = GameManager.instance;
     }
 
     // Update is called once per frame
@@ -68,7 +70,7 @@ public class Caster : MonoBehaviour
 
     private void CastSpell()
     {
-        GameObject newspell = Instantiate(bloodSpell, spellSpawnPoint.position, rotation) as GameObject;
+        GameObject newspell = Instantiate(bloodSpell, spellSpawnPoint.position, Quaternion.LookRotation(target.position - spellSpawnPoint.position)) as GameObject;
         Rigidbody spellRB = newspell.GetComponent<Rigidbody>();
 
         spellRB.velocity = this.transform.forward * spellSpeed;

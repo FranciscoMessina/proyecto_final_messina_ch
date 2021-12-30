@@ -28,13 +28,21 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject areaSpell;
 
+    [SerializeField] private int maxHealth;
+    private int _health;
+
+    public int health {
+        get { return _health; }
+        set { _health = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
 
-        GameManager.instance.GetPlayerReference(this);
+        GameManager.instance.SetPlayerReference(this);
 
 
     }
@@ -138,5 +146,11 @@ public class PlayerController : MonoBehaviour
 
         this.transform.rotation = CharacterRotation;
         
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        _health -= dmg;
+        _anim.SetTrigger("stagger");
     }
 }

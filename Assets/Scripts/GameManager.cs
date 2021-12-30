@@ -6,7 +6,11 @@ public class GameManager : MonoBehaviour
 {   
     public static GameManager instance;
 
-    public PlayerController player;
+    private int score;
+
+    public List<Caster> casterList;
+
+    private PlayerController player;
 
     private void Awake()
     {
@@ -19,24 +23,37 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-    // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void GetPlayerReference(PlayerController player)
+    public void SetPlayerReference(PlayerController player)
     {
         this.player = player;
     }
 
     public PlayerController GetPlayerReference() {
         return this.player;
+    }
+
+    public void DamagePlayer(int dmg)
+    {
+        player.health -= dmg;
+    }
+
+    public void RaiseScore(int addScore)
+    {
+        score += addScore;
+    }
+
+    public void AddCasterToArray(Caster caster)
+    {
+        casterList.Add(caster);
     }
 }

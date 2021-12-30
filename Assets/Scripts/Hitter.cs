@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hitter : MonoBehaviour
 {
+
+    private GameManager _gm;
     [SerializeField] private Transform target; 
     [SerializeField] private float speed = 5;
     [SerializeField] private float rotationSpeed = 5;
@@ -23,6 +25,7 @@ public class Hitter : MonoBehaviour
     void Start()
     {
         _anim = GetComponent<Animator>();
+        _gm = GameManager.instance;
     }
 
     // Update is called once per frame
