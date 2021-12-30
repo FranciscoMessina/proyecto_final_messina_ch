@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Tanker : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Tanker : MonoBehaviour
     private GameManager _gm;
 
     private int currentHealth;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private int maxHealth = 100;
     
     private float distance;
 
@@ -47,8 +48,9 @@ public class Tanker : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentHealth <= maxHealth / 4) { FallBack(); }
-        else if (DetectPlayer()) { Move(); }
+        /*if (currentHealth <= maxHealth / 4) {
+            try { FallBack(); } catch (Exception e){ Debug.Log(e); } }
+        else*/ if (DetectPlayer()) { Move(); }
         Attack();
     }
 
@@ -97,6 +99,7 @@ public class Tanker : MonoBehaviour
         //RaycastHit hit;
 
         var collidedWithPlayer = Physics.Raycast(transform.position, target.position, /*out hit,*/ maxFollowDistance, playerLayer);
+        Debug.Log("Player Detected:" + collidedWithPlayer);
 
         return collidedWithPlayer;
     }

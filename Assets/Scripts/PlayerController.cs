@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private float shootTimer;
     private float areaTimer;
 
+    private GameManager _gm;
+
     [SerializeField] private GameObject iceSpell;
     [SerializeField] private float spellSpeed;
     [SerializeField] private Transform spellSpawnPoint;
@@ -35,14 +37,20 @@ public class PlayerController : MonoBehaviour
         get { return _health; }
         set { _health = value; }
     }
+    private void Awake()
+    {
+        
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+        _gm = GameManager.instance;
+        //_gm.SetPlayerReference(this);
 
-        GameManager.instance.SetPlayerReference(this);
 
 
     }

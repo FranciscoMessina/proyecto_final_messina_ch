@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        player = FindObjectOfType<PlayerController>();
     }
     void Start()
     {

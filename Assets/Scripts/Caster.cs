@@ -24,6 +24,7 @@ public class Caster : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
+        _gm.AddCasterToArray(this);
     }
 
     // Update is called once per frame
