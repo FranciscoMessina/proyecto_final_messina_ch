@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     private int score;
 
-    public List<Caster> casterList;
+    public List<Caster> casterList = new List<Caster>();
 
     private PlayerController player;
 

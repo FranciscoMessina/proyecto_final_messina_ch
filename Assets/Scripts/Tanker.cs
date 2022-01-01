@@ -34,7 +34,7 @@ public class Tanker : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
-        target = _gm.GetPlayerReference().transform;
+        Invoke("GetTarget", 0.1f);
         currentHealth = maxHealth;
     }
 
@@ -51,7 +51,12 @@ public class Tanker : MonoBehaviour
         /*if (currentHealth <= maxHealth / 4) {
             try { FallBack(); } catch (Exception e){ Debug.Log(e); } }
         else*/ if (DetectPlayer()) { Move(); }
+        Move();
         Attack();
+    }
+
+    private void GetTarget() {
+        target = _gm.GetPlayerReference().transform;
     }
 
     public void Move()
@@ -97,8 +102,9 @@ public class Tanker : MonoBehaviour
     private bool DetectPlayer()
     {
         //RaycastHit hit;
+        var direction = (target.position - transform.position).normalized;
 
-        var collidedWithPlayer = Physics.Raycast(transform.position, target.position, /*out hit,*/ maxFollowDistance, playerLayer);
+        var collidedWithPlayer = Physics.Raycast(transform.position, direction, /*out hit,*/ maxFollowDistance, playerLayer);
         Debug.Log("Player Detected:" + collidedWithPlayer);
 
         return collidedWithPlayer;

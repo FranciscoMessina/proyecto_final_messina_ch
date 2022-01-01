@@ -6,7 +6,7 @@ public class Hitter : MonoBehaviour
 {
 
     private GameManager _gm;
-    [SerializeField] private Transform target; 
+    private Transform target; 
     [SerializeField] private float speed = 5;
     [SerializeField] private float rotationSpeed = 5;
 
@@ -26,6 +26,8 @@ public class Hitter : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
+        Invoke("GetTarget", 0.1f);
+
     }
 
     // Update is called once per frame
@@ -42,6 +44,11 @@ public class Hitter : MonoBehaviour
         Move();
         Attack();
     }
+
+    private void GetTarget() {
+        target = _gm.GetPlayerReference().transform;
+    }
+
 
     public void Move()
     {
