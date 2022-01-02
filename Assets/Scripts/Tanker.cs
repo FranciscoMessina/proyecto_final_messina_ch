@@ -29,6 +29,9 @@ public class Tanker : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private LayerMask enemiesLayer;
 
+
+    [SerializeField] private Transform tankerEyes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,7 +107,7 @@ public class Tanker : MonoBehaviour
         //RaycastHit hit;
         var direction = (target.position - transform.position).normalized;
 
-        var collidedWithPlayer = Physics.Raycast(transform.position, direction, /*out hit,*/ maxFollowDistance, playerLayer);
+        var collidedWithPlayer = Physics.Raycast(tankerEyes.position, direction, /*out hit,*/ maxFollowDistance, playerLayer);
         Debug.Log("Player Detected:" + collidedWithPlayer);
 
         return collidedWithPlayer;

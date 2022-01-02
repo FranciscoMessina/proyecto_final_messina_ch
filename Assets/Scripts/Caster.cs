@@ -71,7 +71,7 @@ public class Caster : MonoBehaviour
 
     private void CastSpell()
     {
-        GameObject newspell = Instantiate(bloodSpell, spellSpawnPoint.position, Quaternion.LookRotation(target.position - spellSpawnPoint.position)) as GameObject;
+        GameObject newspell = Instantiate(bloodSpell, spellSpawnPoint.position, Quaternion.LookRotation((target.position - transform.position).normalized)) as GameObject;
         Rigidbody spellRB = newspell.GetComponent<Rigidbody>();
 
         spellRB.velocity = this.transform.forward * spellSpeed;

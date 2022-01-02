@@ -60,12 +60,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1521cd9a99c37349b028dfc2a9829ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speed: 5
   rotationSpeed: 5
   maxFollowDistance: 50
   minFollowDistance: 4
+  maxHealth: 100
   attackDelay: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  tankerEyes: {fileID: 5205313269822475303}
+--- !u!1 &7313743699980091047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5205313269822475303}
+  m_Layer: 0
+  m_Name: TankerEyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5205313269822475303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313743699980091047}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.147, y: 0.936, z: -2.0880625}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 4056471563974603868}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8753175336351643977
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +495,11 @@ PrefabInstance:
 --- !u!1 &3675126178640670438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
+  m_PrefabInstance: {fileID: 4594166504480609207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4056471563974603868 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba807743e3672a6458e6a9004596cc98, type: 3}
   m_PrefabInstance: {fileID: 4594166504480609207}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8366326541011096776 stripped

@@ -5213,6 +5213,18 @@ PrefabInstance:
       propertyPath: attackDelay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
+      propertyPath: maxFollowDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
+      propertyPath: enemiesLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 3675126178640670438, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
       propertyPath: m_Name
       value: Tanker Variant
@@ -5984,7 +5996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037fa0d3ffcc52c4dafc471fc101e022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  casterList: []
 --- !u!4 &1153691291
 Transform:
   m_ObjectHideFlags: 0
