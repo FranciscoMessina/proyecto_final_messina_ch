@@ -60,8 +60,8 @@ public class AttackCollision : MonoBehaviour
 
     private void CasterDamage(Collider other)
     {
-        Debug.Log("Caster Collider");
-        Destroy(other.gameObject);
+        Debug.Log("Caster Collider");        
+        //Destroy(other.gameObject);
     }
 
     private void HitterDamage(Collider other)

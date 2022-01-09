@@ -65,13 +65,13 @@ MonoBehaviour:
   maxFollowDistance: 50
   minFollowDistance: 4
   maxHealth: 100
-  attackDelay: 0
+  attackDelay: 1
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   enemiesLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   tankerEyes: {fileID: 5205313269822475303}
 --- !u!1 &7313743699980091047
 GameObject:

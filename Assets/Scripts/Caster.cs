@@ -17,6 +17,8 @@ public class Caster : MonoBehaviour
     private float castCooldown;
     private bool canCast;
 
+    private OnDeathDrops onDeathDrops;
+
     private Quaternion rotation;
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class Caster : MonoBehaviour
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         _gm.AddCasterToArray(this);
+        onDeathDrops = new OnDeathDrops();
     }
 
     // Update is called once per frame
@@ -63,6 +66,22 @@ public class Caster : MonoBehaviour
 
     }
 
+    /*private void onCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag == "PlayerSpell")
+        {
+            Die();
+        }
+    }*/
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "PlayerSpell")
+        {
+            Die();
+        }
+    }
+
     private void Cast()
     {
         Invoke("CastSpell", .6f);
@@ -80,5 +99,9 @@ public class Caster : MonoBehaviour
     public void Die()
     {
         _anim.SetTrigger("die");
+        Destroy(this.gameObject, 2.0f);
+        canCast = false;
+        GameObject newDrop = onDeathDrops.getDrops();
+        Instantiate(newDrop);
     }
 }

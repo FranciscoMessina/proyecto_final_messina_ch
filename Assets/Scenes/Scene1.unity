@@ -3730,6 +3730,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8919905175409704907, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
+      propertyPath: chances.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2452720565514279925, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5205,26 +5209,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 946598830}
-    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
-      propertyPath: attackDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
-      propertyPath: maxFollowDistance
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
-      propertyPath: playerLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
-      propertyPath: enemiesLayer.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
     - target: {fileID: 3675126178640670438, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
       propertyPath: m_Name
       value: Tanker Variant
