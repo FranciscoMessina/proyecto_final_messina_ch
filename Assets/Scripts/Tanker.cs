@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+
 
 public class Tanker : MonoBehaviour
 {
@@ -31,6 +31,14 @@ public class Tanker : MonoBehaviour
 
 
     [SerializeField] private Transform tankerEyes;
+    [SerializeField] private Transform[] patrolPoints;
+    private Vector3 startingLocation;
+    private int randomSpot;
+    private float waitTime;
+    public float startWaitTime;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,31 +47,42 @@ public class Tanker : MonoBehaviour
         _gm = GameManager.instance;
         Invoke("GetTarget", 0.1f);
         currentHealth = maxHealth;
+        startingLocation = transform.position;
+        randomSpot = Random.Range(0, patrolPoints.Length);
+
     }
 
     void Update()
     {
-        distance = Vector3.Distance(transform.position, target.position);
 
         if (canAttack == false && attackCooldown >= 0) attackCooldown -= Time.deltaTime;
         else if (canAttack == false && attackCooldown <= 0) canAttack = true;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         /*if (currentHealth <= maxHealth / 4) {
             try { FallBack(); } catch (Exception e){ Debug.Log(e); } }
-        else*/ if (DetectPlayer()) { Move(); }
-        Move();
-        Attack();
+        else*/
+        
+        if (DetectPlayer()) { 
+            MoveToPlayer();
+            Attack(); 
+        } else {
+            Patrol();
+        }
+        
     }
 
     private void GetTarget() {
         target = _gm.GetPlayerReference().transform;
     }
 
-    public void Move()
+    public void MoveToPlayer()
     {
+        distance = Vector3.Distance(transform.position, target.position);
+
+
         var direction = (target.position - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
@@ -75,6 +94,41 @@ public class Tanker : MonoBehaviour
         }
         else _anim.SetInteger("tAnim", 0);
 
+    }
+
+    public void MoveToDestination(Vector3 destination) {
+
+        distance = Vector3.Distance(transform.position, destination);
+
+        var direction = (destination - transform.position).normalized;
+        Quaternion rotation = Quaternion.LookRotation(destination - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+
+        if(distance > Mathf.Epsilon) {
+            _anim.SetInteger("tAnim", 1);
+            transform.position += direction * speed * Time.deltaTime;
+        } else {
+            _anim.SetInteger("tAnim", 0);
+        }
+
+
+    }
+
+    
+    private void Patrol()
+    {
+        MoveToDestination(patrolPoints[randomSpot].position);
+        // Debug.Log("Patrol Called");
+
+        if(Vector3.Distance(transform.position, patrolPoints[randomSpot].position) < Mathf.Epsilon) {
+            if(waitTime <= 0) {
+                randomSpot = Random.Range(0, patrolPoints.Length);
+            } else {
+                waitTime -= Time.deltaTime;
+            }
+        }
+
+        
     }
 
     public void FallBack()

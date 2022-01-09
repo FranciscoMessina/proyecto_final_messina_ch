@@ -73,6 +73,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   tankerEyes: {fileID: 5205313269822475303}
+  patrolPoints: []
 --- !u!1 &7313743699980091047
 GameObject:
   m_ObjectHideFlags: 0
