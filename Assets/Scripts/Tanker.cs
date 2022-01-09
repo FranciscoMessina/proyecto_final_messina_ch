@@ -66,7 +66,7 @@ public class Tanker : MonoBehaviour
         else*/
         
         if (DetectPlayer()) { 
-            Move();
+            MoveToPlayer();
             Attack(); 
         } else {
             Patrol();
@@ -78,7 +78,7 @@ public class Tanker : MonoBehaviour
         target = _gm.GetPlayerReference().transform;
     }
 
-    public void Move()
+    public void MoveToPlayer()
     {
         distance = Vector3.Distance(transform.position, target.position);
 
@@ -96,7 +96,7 @@ public class Tanker : MonoBehaviour
 
     }
 
-    public void Move(Vector3 destination) {
+    public void MoveToDestination(Vector3 destination) {
 
         distance = Vector3.Distance(transform.position, destination);
 
@@ -117,7 +117,7 @@ public class Tanker : MonoBehaviour
     
     private void Patrol()
     {
-        Move(patrolPoints[randomSpot].position);
+        MoveToDestination(patrolPoints[randomSpot].position);
         // Debug.Log("Patrol Called");
 
         if(Vector3.Distance(transform.position, patrolPoints[randomSpot].position) < Mathf.Epsilon) {
