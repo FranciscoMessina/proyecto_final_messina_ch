@@ -101,10 +101,12 @@ public class Tanker : MonoBehaviour
         distance = Vector3.Distance(transform.position, destination);
 
         var direction = (destination - transform.position).normalized;
+        direction.y = 0;
         Quaternion rotation = Quaternion.LookRotation(destination - transform.position);
+        rotation.x = 0;
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-        if(distance > Mathf.Epsilon) {
+        if(distance > 1f) {
             _anim.SetInteger("tAnim", 1);
             transform.position += direction * speed * Time.deltaTime;
         } else {
@@ -120,7 +122,7 @@ public class Tanker : MonoBehaviour
         MoveToDestination(patrolPoints[randomSpot].position);
         // Debug.Log("Patrol Called");
 
-        if(Vector3.Distance(transform.position, patrolPoints[randomSpot].position) < Mathf.Epsilon) {
+        if(Vector3.Distance(transform.position, patrolPoints[randomSpot].position) < 1f) {
             if(waitTime <= 0) {
                 randomSpot = Random.Range(0, patrolPoints.Length);
             } else {
