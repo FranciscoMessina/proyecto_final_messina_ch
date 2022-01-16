@@ -5,7 +5,7 @@ using UnityEngine;
 public class OnDeathDrops : MonoBehaviour
 {
 
-    private Dictionary<GameObject, int> _drops = new Dictionary<GameObject, int>();
+    private Dictionary<GameObject, float> _drops = new Dictionary<GameObject, float>();
     [SerializeField] List<GameObject> items = new List<GameObject>();
     [SerializeField] List<int> chances = new List<int>();
 
@@ -23,14 +23,32 @@ public class OnDeathDrops : MonoBehaviour
 
     public GameObject getDrops()
     {
-        var drop = _roulette.Run(_drops) ;
+        GameObject drop = Run(_drops);
 
         return drop;
     }
 
     // Update is called once per frame
-    void Update()
+    public GameObject Run<GameObject>(Dictionary<GameObject, float> items)
     {
-        
+        float max = 0;
+
+        foreach (var item in items)
+        {
+            max += item.Value;
+        }
+
+        float random = Random.Range(0, max);
+
+        foreach (var item in items)
+        {
+            random -= item.Value;
+            if (random <= 0)
+            {
+                return item.Key;
+
+            }
+        }
+        return default;
     }
 }
