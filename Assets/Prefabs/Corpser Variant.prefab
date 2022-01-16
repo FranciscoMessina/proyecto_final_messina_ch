@@ -92,7 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 3326948689017525472, guid: 95049ecbe26b38042b9435b8a85e12fc, type: 3}
-  chances: 64000000
+  - {fileID: 3317675090667664413, guid: 9b8f425efd80f5f42afda00416eb019f, type: 3}
+  - {fileID: 3528342780645154909, guid: 7661e368ca2415942be96c380247d9d5, type: 3}
+  chances: 060000000100000003000000
 --- !u!114 &5438723270121860919
 MonoBehaviour:
   m_ObjectHideFlags: 0

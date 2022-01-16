@@ -23,13 +23,13 @@ public class OnDeathDrops : MonoBehaviour
 
     public GameObject getDrops()
     {
-        GameObject drop = Run(_drops);
+        GameObject drop = Run<GameObject>(_drops);
 
         return drop;
     }
 
     // Update is called once per frame
-    public GameObject Run<GameObject>(Dictionary<GameObject, float> items)
+    public T Run<T>(Dictionary<T, float> items)
     {
         float max = 0;
 
