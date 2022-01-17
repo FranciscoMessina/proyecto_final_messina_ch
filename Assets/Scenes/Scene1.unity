@@ -2959,7 +2959,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577389319}
-  m_LocalRotation: {x: 0.08072614, y: -0.0021876693, z: 0.00017718194, w: 0.9967339}
+  m_LocalRotation: {x: 0.08072616, y: -0.0020744964, z: 0.00016801491, w: 0.99673414}
   m_LocalPosition: {x: -31.85, y: 12.4, z: -100.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3678,10 +3678,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8919905175409704907, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
-      propertyPath: chances.Array.data[0]
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2452720565514279925, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3734,6 +3730,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 946598830}
+    - target: {fileID: 5438723270121860919, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
+      propertyPath: onDeathDrops
+      value: 
+      objectReference: {fileID: 942077358}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
 --- !u!1001 &761712883
@@ -4381,7 +4381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999973
+      value: 0.9999971
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4389,11 +4389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0020098288
+      value: 0.0021218718
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000330023
+      value: -0.000348421
       objectReference: {fileID: 0}
     - target: {fileID: 2453227530044769608, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_Name
@@ -5227,6 +5227,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
+--- !u!114 &942077358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8919905175409704907, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
+  m_PrefabInstance: {fileID: 760253870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f61a0316f1c8eb4f921b50146a54340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &946598830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2972461362480373746, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
@@ -6367,7 +6378,7 @@ Transform:
   - {fileID: 1428456156}
   - {fileID: 1071507255}
   m_Father: {fileID: 1662547093}
-  m_RootOrder: 28
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1227250724
 PrefabInstance:
@@ -8120,7 +8131,7 @@ Transform:
   - {fileID: 1148422041}
   - {fileID: 1059055105}
   m_Father: {fileID: 1662547093}
-  m_RootOrder: 19
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1601333348
 PrefabInstance:
@@ -8439,6 +8450,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 647442527}
+  - {fileID: 1589076707}
+  - {fileID: 1209456921}
   - {fileID: 1894739941}
   - {fileID: 1337868805}
   - {fileID: 2120197120}
@@ -8457,7 +8470,6 @@ Transform:
   - {fileID: 96380176}
   - {fileID: 217597364}
   - {fileID: 72924380}
-  - {fileID: 1589076707}
   - {fileID: 859134218}
   - {fileID: 768295018}
   - {fileID: 2108586522}
@@ -8466,7 +8478,6 @@ Transform:
   - {fileID: 399221825}
   - {fileID: 881520536}
   - {fileID: 48667937}
-  - {fileID: 1209456921}
   - {fileID: 1379073161}
   - {fileID: 166870507}
   - {fileID: 1660197314}
