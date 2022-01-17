@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject areaSpell;
 
-    [SerializeField] private int maxHealth;
+    [SerializeField] private int maxHealth = 100;
+    private int currentHealth;
     private int _health;
 
     public int health {
@@ -46,13 +47,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+        Debug.Log(maxHealth);
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
-        //_gm.SetPlayerReference(this);
-
-
-
+        _gm.SetPlayerReference(this);
     }
 
     // Update is called once per frame
@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
         vInput = Input.GetAxis("Vertical") * moveSpeed;
         hInput = Input.GetAxis("Horizontal") * sideSpeed;
 
+        ChangeHealth();
 
         if (canShoot == false && shootTimer >= 0)
         {
@@ -81,7 +82,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void FixedUpdate()
     {
 
@@ -99,8 +99,33 @@ public class PlayerController : MonoBehaviour
             Area();
             areaTimer = areaDelay;
         }
+    }
 
 
+    public int GetHealth() {
+        return currentHealth;
+    }
+    void ChangeHealth() {
+        if (Input.GetKeyDown(KeyCode.J)) {
+            Debug.Log('J');
+            currentHealth -= 10;
+
+
+        } 
+        
+        if(Input.GetKeyDown(KeyCode.K)) {
+            Debug.Log('k');
+            currentHealth += 10;
+
+        }
+
+        if(currentHealth <= 0) {
+            currentHealth = 0;
+        }
+        if (currentHealth > maxHealth) {
+          currentHealth = maxHealth;
+        }
+        Debug.Log(currentHealth);
 
     }
 
