@@ -3130,7 +3130,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577389319}
-  m_LocalRotation: {x: 0.08072614, y: -0.0021879287, z: 0.00017720285, w: 0.9967339}
+  m_LocalRotation: {x: 0.08072616, y: -0.0020744964, z: 0.00016801491, w: 0.99673414}
   m_LocalPosition: {x: -31.85, y: 12.4, z: -100.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3897,6 +3897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corpser Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5438723270121860919, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
+      propertyPath: dataValues
+      value: 
+      objectReference: {fileID: 11400000, guid: a9c058215e5576946a25023b86fe6f96, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
 --- !u!1001 &761712883
@@ -4544,7 +4548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999973
+      value: 0.9999971
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4552,11 +4556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0020095725
+      value: 0.0021218718
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00032998098
+      value: -0.000348421
       objectReference: {fileID: 0}
     - target: {fileID: 2453227530044769608, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_Name

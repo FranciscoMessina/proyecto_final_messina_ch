@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Caster : BaseEnemy
 {
-   
+    [SerializeField] private int maxHealth;
     [SerializeField] private GameObject bloodSpell;
     [SerializeField] private float spellSpeed;
     [SerializeField] private Transform spellSpawnPoint;
     [SerializeField] private float castDelay;
+    [SerializeField] private int speed;
+    [SerializeField] private int baseDmg;
     private float castCooldown;
     private bool canCast;
     private bool dead = false;
     private Quaternion rotation;
+
+
+    [SerializeField] private CasterData dataValues;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +25,13 @@ public class Caster : BaseEnemy
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         _gm.AddCasterToArray(this);
+
+        spellSpeed = dataValues.spellSpeed;
+        maxHealth = dataValues.casterHealth;
+        speed = dataValues.walkSpeed;
+        baseDmg = dataValues.casterDamage;
+
+
     }
 
     // Update is called once per frame
