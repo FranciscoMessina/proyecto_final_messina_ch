@@ -9,6 +9,9 @@ public class Tanker : BaseEnemy
     private float currentHealth;
     private float attackCooldown;
     private bool canAttack;
+    private float damage;
+
+    [SerializeField] private TankerData dataValues;
 
 
     // Start is called before the first frame update
@@ -17,9 +20,13 @@ public class Tanker : BaseEnemy
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         Invoke("GetTarget", 0.1f);
-        currentHealth = maxHealth;
-        startingLocation = transform.position;
-        randomSpot = Random.Range(0, patrolPoints.Length);
+        // startingLocation = transform.position;
+        // randomSpot = Random.Range(0, patrolPoints.Length);
+        // Debug.Log(currentHealth);
+
+        currentHealth = dataValues.maxHealth;
+        damage = dataValues.damage;
+        speed = dataValues.speed;
 
     }
 

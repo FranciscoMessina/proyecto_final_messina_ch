@@ -26,9 +26,7 @@ public abstract class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _anim = GetComponent<Animator>();
-        _gm = GameManager.instance;
-        Invoke("GetTarget", 0.1f);
+  
         startingLocation = transform.position;
         randomSpot = Random.Range(0, patrolPoints.Length);
 
