@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Caster : BaseEnemy
 {
-    [SerializeField] private int maxHealth;
+
     [SerializeField] private GameObject bloodSpell;
     [SerializeField] private float spellSpeed;
     [SerializeField] private Transform spellSpawnPoint;
     [SerializeField] private float castDelay;
-    [SerializeField] private int speed;
     [SerializeField] private int baseDmg;
     private float castCooldown;
     private bool canCast;
@@ -61,6 +60,7 @@ public class Caster : BaseEnemy
     public void Rotate()
     {
 
+        // Aca da un null reference y no entiendo porque. Antes de crear la clase base funcionaba, pero en los otros enemigos tiene la misma linea y sigue funcionando
         Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         _anim.SetFloat("rotate", 1);
