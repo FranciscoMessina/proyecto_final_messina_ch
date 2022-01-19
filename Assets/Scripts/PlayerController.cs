@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
         if (currentHealth > maxHealth) {
           currentHealth = maxHealth;
         }
-        Debug.Log(currentHealth);
+        // Debug.Log(currentHealth);
 
     }
 

@@ -2,25 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Caster : MonoBehaviour
+public class Caster : BaseEnemy
 {
-    private GameManager _gm;
-    [SerializeField] private Transform target; 
-    [SerializeField] private float rotationSpeed = 5;
-    private Animator _anim;
-
+   
     [SerializeField] private GameObject bloodSpell;
     [SerializeField] private float spellSpeed;
     [SerializeField] private Transform spellSpawnPoint;
-
     [SerializeField] private float castDelay;
     private float castCooldown;
     private bool canCast;
-
     private bool dead = false;
-
-    [SerializeField]private OnDeathDrops onDeathDrops;
-
     private Quaternion rotation;
 
     // Start is called before the first frame update
@@ -34,8 +25,6 @@ public class Caster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotation = Quaternion.LookRotation(target.position - transform.position);
-
         if (canCast == false && castCooldown >= 0)
         {
             castCooldown -= Time.deltaTime;
@@ -48,7 +37,7 @@ public class Caster : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        Rotate();
         if (canCast == true)
         {
             Cast();
@@ -57,10 +46,10 @@ public class Caster : MonoBehaviour
         }
     }
 
-    public void Move()
+    public void Rotate()
     {
 
-        rotation = Quaternion.LookRotation(target.position - transform.position);
+        Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         _anim.SetFloat("rotate", 1);
 

@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemy : MonoBehaviour
+public abstract class BaseEnemy : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100;
-    [SerializeField] private float speed = 10;
-    [SerializeField] private float rotationSpeed = 10;
-    [SerializeField] private float maxFollowDistance = 50;
-    [SerializeField] private float minFollowDistance = 4;
-    [SerializeField] private float attackDelay = 3;
-    [SerializeField] private Transform raycastOrigin;
-    [SerializeField] private OnDeathDrops onDeathDrops;
-    [SerializeField] private Transform[] patrolPoints;
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private LayerMask enemiesLayer;
-    private Vector3 startingLocation;
-    private int randomSpot;
-    private float waitTime;
+    [SerializeField] protected float maxHealth = 100;
+    [SerializeField] protected float speed = 10;
+    [SerializeField] protected float rotationSpeed = 10;
+    [SerializeField] protected float maxFollowDistance = 50;
+    [SerializeField] protected float minFollowDistance = 4;
+    [SerializeField] protected float attackDelay = 3;
+    [SerializeField] protected Transform raycastOrigin;
+    [SerializeField] protected OnDeathDrops onDeathDrops;
+    [SerializeField] protected Transform[] patrolPoints;
+    [SerializeField] protected LayerMask playerLayer;
+    [SerializeField] protected LayerMask enemiesLayer;
+    protected Vector3 startingLocation;
+    protected int randomSpot;
+    protected float waitTime;
     public float startWaitTime;
-    private Transform target;
-    private GameManager _gm;
-    private Animator _anim;
-    private float distance;
+    protected Transform target;
+    protected GameManager _gm;
+    protected Animator _anim;
+    protected float distance;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,29 +34,23 @@ public class BaseEnemy : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void MoveToPlayer()
     {
-        
-    }
-
-    public void MoveToPlayer()
-    {
+        distance = Vector3.Distance(transform.position, target.position);
         var direction = (target.position -  transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
         // TODO: Change animation to be reusable between enemies
         if (distance < maxFollowDistance && distance >= minFollowDistance)
-        {
-            _anim.SetInteger("hAnim", 1);
+        {// _anim.SetInteger("hAnim", 1);
             transform.position += direction * speed * Time.deltaTime;
         }
-        else _anim.SetInteger("hAnim", 0);
+        // else _anim.SetInteger("hAnim", 0);
 
     }
 
-    private void Patrol()
+    protected void Patrol()
     {
         MoveToDestination(patrolPoints[randomSpot].position);
         // Debug.Log("Patrol Called");
@@ -70,19 +64,19 @@ public class BaseEnemy : MonoBehaviour
         }
     }
 
-    private bool DetectPlayer()
+    protected bool DetectPlayer()
     {
         //RaycastHit hit;
         var direction = (target.position - transform.position).normalized;
 
         var collidedWithPlayer = Physics.Raycast(raycastOrigin.position, direction, /*out hit,*/ maxFollowDistance, playerLayer);
-        Debug.Log("Player Detected:" + collidedWithPlayer);
+        if(collidedWithPlayer) Debug.Log("Player Detected:" + collidedWithPlayer);
 
         return collidedWithPlayer;
     }
 
     
-    public void MoveToDestination(Vector3 destination) {
+    public virtual void MoveToDestination(Vector3 destination) {
 
         distance = Vector3.Distance(transform.position, destination);
 
@@ -94,14 +88,14 @@ public class BaseEnemy : MonoBehaviour
 
         // TODO: Change animation to be reusable between enemies
         if(distance > 1f) {
-            _anim.SetInteger("tAnim", 1);
+            // _anim.SetInteger("tAnim", 1);
             transform.position += direction * speed * Time.deltaTime;
         } else {
-            _anim.SetInteger("tAnim", 0);
+            // _anim.SetInteger("tAnim", 0);
         }
     }
 
-    private void GetTarget() {
+    protected void GetTarget() {
         target = _gm.GetPlayerReference().transform;
     }
 }

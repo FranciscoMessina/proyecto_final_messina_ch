@@ -60,20 +60,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1521cd9a99c37349b028dfc2a9829ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   speed: 5
   rotationSpeed: 5
   maxFollowDistance: 50
   minFollowDistance: 4
-  maxHealth: 100
   attackDelay: 1
+  raycastOrigin: {fileID: 5205313269822475303}
+  onDeathDrops: {fileID: 7790806088192546255}
+  patrolPoints: []
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 256
-  tankerEyes: {fileID: 5205313269822475303}
-  patrolPoints: []
+  startWaitTime: 10
+--- !u!114 &7790806088192546255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675126178640670438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f61a0316f1c8eb4f921b50146a54340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 3317675090667664413, guid: 9b8f425efd80f5f42afda00416eb019f, type: 3}
+  - {fileID: 3326948689017525472, guid: 95049ecbe26b38042b9435b8a85e12fc, type: 3}
+  - {fileID: 3528342780645154909, guid: 7661e368ca2415942be96c380247d9d5, type: 3}
+  chances: 0a0000000500000014000000
 --- !u!1 &7313743699980091047
 GameObject:
   m_ObjectHideFlags: 0

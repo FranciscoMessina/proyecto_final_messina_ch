@@ -107,8 +107,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459716ae8544edc478cb20d06ef7137d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  maxHealth: 100
+  speed: 10
   rotationSpeed: 5
+  maxFollowDistance: 50
+  minFollowDistance: 4
+  attackDelay: 3
+  raycastOrigin: {fileID: 0}
+  onDeathDrops: {fileID: -8919905175409704907}
+  patrolPoints: []
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  startWaitTime: 0
   bloodSpell: {fileID: 7555963768277070994, guid: 10a7d95a8a6d0ad4c96fa385d5efeca6, type: 3}
   spellSpeed: 30
   spellSpawnPoint: {fileID: 9198289367424498305}

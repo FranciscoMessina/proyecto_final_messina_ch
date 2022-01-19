@@ -2,22 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hitter : MonoBehaviour
+public class Hitter : BaseEnemy
 {
-
-    private GameManager _gm;
-    private Transform target; 
-    [SerializeField] private float speed = 5;
-    [SerializeField] private float rotationSpeed = 5;
-
-    [SerializeField] private float maxFollowDistance = 50;
-    [SerializeField] private float minFollowDistance = 4;
-
-    private float distance;
-
-    private Animator _anim;
-
-    [SerializeField] private float attackDelay;
     private float attackCooldown;
     private bool canAttack;
 
@@ -41,25 +27,17 @@ public class Hitter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        MoveToPlayer();
         Attack();
     }
 
-    private void GetTarget() {
-        target = _gm.GetPlayerReference().transform;
-    }
-
-
-    public void Move()
+    public override void MoveToPlayer()
     {
-        var direction = (target.position -  transform.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        base.MoveToPlayer();
 
         if (distance < maxFollowDistance && distance >= minFollowDistance)
         {
             _anim.SetInteger("hAnim", 1);
-            transform.position += direction * speed * Time.deltaTime;
         }
         else _anim.SetInteger("hAnim", 0);
 
