@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecf9aa8c8b96464ebd9b957427b4a28, type: 3}
   m_Name: TakerDataValues
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  damage: 0
-  speed: 0
+  maxHealth: 150
+  damage: 20
+  speed: 20
