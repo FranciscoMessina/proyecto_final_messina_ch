@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 8;
     [SerializeField] private float sideSpeed = 6;
     private Rigidbody _rb;
-    private CinemachineTouchInputMapper _cM;
+    //private CinemachineTouchInputMapper _cM;
 
     private float vInput;
     private float hInput;
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
     private int _health;
+
+    //public event Action onDeath;
 
     public int health {
         get { return _health; }
@@ -186,4 +189,6 @@ public class PlayerController : MonoBehaviour
         _health -= dmg;
         _anim.SetTrigger("stagger");
     }
+
+    
 }

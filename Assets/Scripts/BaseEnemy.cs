@@ -23,6 +23,8 @@ public abstract class BaseEnemy : MonoBehaviour
     protected GameManager _gm;
     protected Animator _anim;
     protected float distance;
+
+
     // Start is called before the first frame update
     void Start()
     {
