@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float areaDelay = 4;
     private float shootTimer;
     private float areaTimer;
+    private bool isCasting = false;
 
     private GameManager _gm;
 
@@ -89,19 +90,21 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        Walk();
-        Rotate();
+        if (!isCasting) Walk();
+        if (!isCasting) Rotate();
 
-        if (Input.GetButton("Fire1") && canShoot)
+        if (Input.GetButton("Fire1") && canShoot && !isCasting)
         {
             Shoot();
             shootTimer = shootDelay;
+            isCasting = true;
         }
 
-        else if (Input.GetButton("Fire2") && canArea)
+        else if (Input.GetButton("Fire2") && canArea && !isCasting)
         {
             Area();
             areaTimer = areaDelay;
+            isCasting = true;
         }
     }
 
@@ -133,13 +136,13 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        Invoke("CastSpell", .6f);
+        //Invoke("CastSpell", .6f);
         _anim.SetTrigger("SpellTrig");
         canShoot = false;
         Debug.Log("Shoot called");
     }
 
-    private void CastSpell()
+    public void CastSpell()
     {
         GameObject newspell = Instantiate(iceSpell, spellSpawnPoint.position, this.transform.rotation) as GameObject;
         Rigidbody spellRB = newspell.GetComponent<Rigidbody>();
@@ -149,13 +152,13 @@ public class PlayerController : MonoBehaviour
 
     void Area()
     {
-        Invoke("CastArea", 1f);
+        //Invoke("CastArea", 1f);
         _anim.SetTrigger("AreaTrig");
         canArea = false;
         Debug.Log("Area called");
     }
 
-    private void CastArea()
+    public void CastArea()
     {
         GameObject newarea = Instantiate(areaSpell, this.transform.position, this.transform.rotation) as GameObject;
     }
@@ -194,5 +197,9 @@ public class PlayerController : MonoBehaviour
         currentHealth += healvalue;
     }
 
+    public void FinishedCasting()
+    {
+        isCasting = false;
+    }
     
 }
