@@ -63,11 +63,9 @@ MonoBehaviour:
   maxHealth: 100
   speed: 5
   rotationSpeed: 5
-  maxFollowDistance: 50
-  minFollowDistance: 4
+  chaseRange: 50
   attackDelay: 0
   raycastOrigin: {fileID: 0}
-  onDeathDrops: {fileID: 2931010276061475644}
   patrolPoints: []
   playerLayer:
     serializedVersion: 2
@@ -76,6 +74,28 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   startWaitTime: 0
+--- !u!195 &242358747654016338
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8606451209864762604}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 4
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &2931010276061475644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae30da05339edc4c9462c73cec3f30a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ae30da05339edc4c9462c73cec3f30a, type: 3}
       propertyPath: m_LocalPosition.z

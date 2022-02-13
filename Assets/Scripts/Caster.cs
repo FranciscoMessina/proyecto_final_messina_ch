@@ -24,6 +24,8 @@ public class Caster : BaseEnemy
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         _gm.AddCasterToArray(this);
+        Invoke("GetTarget", 0.1f);
+
 
         spellSpeed = dataValues.spellSpeed;
         maxHealth = dataValues.casterHealth;

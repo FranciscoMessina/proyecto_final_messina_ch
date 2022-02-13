@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 public class Tanker : BaseEnemy
 {
@@ -23,6 +23,8 @@ public class Tanker : BaseEnemy
         // startingLocation = transform.position;
         // randomSpot = Random.Range(0, patrolPoints.Length);
         // Debug.Log(currentHealth);
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
 
         currentHealth = dataValues.maxHealth;
         damage = dataValues.damage;
@@ -32,78 +34,87 @@ public class Tanker : BaseEnemy
 
     void Update()
     {
+        distanceToTarget = Vector3.Distance(target.position, transform.position);
+        if(isProvoked)
+        {
+            EngageTarget();
+        } 
+        else if (distanceToTarget <= chaseRange)
+        {
+            isProvoked = true;
+        }
 
         if (canAttack == false && attackCooldown >= 0) attackCooldown -= Time.deltaTime;
         else if (canAttack == false && attackCooldown <= 0) canAttack = true;
     }
 
-    void FixedUpdate()
-    {
-        /*if (currentHealth <= maxHealth / 4) {
-            try { FallBack(); } catch (Exception e){ Debug.Log(e); } }
-        else*/
+    // void FixedUpdate()
+    // {
+    //     /*if (currentHealth <= maxHealth / 4) {
+    //         try { FallBack(); } catch (Exception e){ Debug.Log(e); } }
+    //     else*/
         
         
-        if (DetectPlayer()) { 
-            MoveToPlayer();
-            Attack(); 
-        } else {
-            Patrol();
-        }
+    //     if (DetectPlayer()) { 
+    //         MoveToPlayer();
+    //         Attack(); 
+    //     } else {
+    //         Patrol();
+    //     }
         
-    }
+    // }
 
 
-    public override void MoveToPlayer()
-    {
-        base.MoveToPlayer();
+    // public override void MoveToPlayer()
+    // {
+    //     base.MoveToPlayer();
 
-        if (distance < maxFollowDistance && distance >= minFollowDistance)
-        {
-            _anim.SetInteger("tAnim", 1);
-            // transform.position += direction * speed * Time.deltaTime;
-        }
-        else _anim.SetInteger("tAnim", 0);
+    //     if (distance < maxFollowDistance && distance >= minFollowDistance)
+    //     {
+    //         _anim.SetInteger("tAnim", 1);
+    //         // transform.position += direction * speed * Time.deltaTime;
+    //     }
+    //     else _anim.SetInteger("tAnim", 0);
 
-    }
+    // }
 
-    public override void MoveToDestination(Vector3 destination) {
-        base.MoveToDestination(destination);
+    // public override void MoveToDestination(Vector3 destination) {
+    //     base.MoveToDestination(destination);
 
-        if(distance > 1f) {
-            _anim.SetInteger("tAnim", 1);
-            // transform.position += base. * speed * Time.deltaTime;
-        } else {
-            _anim.SetInteger("tAnim", 0);
-        }
-    }
+    //     if(distance > 1f) {
+    //         _anim.SetInteger("tAnim", 1);
+    //         // transform.position += base. * speed * Time.deltaTime;
+    //     } else {
+    //         _anim.SetInteger("tAnim", 0);
+    //     }
+    // }
 
-    public void FallBack()
-    {
-        var direction = (healerTarget.position - transform.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(healerTarget.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+    // public void FallBack()
+    // {
+    //     var direction = (healerTarget.position - transform.position).normalized;
+    //     Quaternion rotation = Quaternion.LookRotation(healerTarget.position - transform.position);
+    //     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-        if (distance < maxFollowDistance && distance >= minFollowDistance)
-        {
-            _anim.SetInteger("tAnim", 1);
-            transform.position += direction * speed * Time.deltaTime;
-        }
-        else _anim.SetInteger("tAnim", 0);
+    //     if (distance < maxFollowDistance && distance >= minFollowDistance)
+    //     {
+    //         _anim.SetInteger("tAnim", 1);
+    //         transform.position += direction * speed * Time.deltaTime;
+    //     }
+    //     else _anim.SetInteger("tAnim", 0);
 
-    }
+    // }
 
-    private void Attack()
-    {
-        if (distance < minFollowDistance && canAttack)
-        {
-            _anim.SetTrigger("attack");
-            canAttack = false;
-            attackCooldown = attackDelay;
-        } else {
-            _anim.ResetTrigger("attack");
-        }
-    }
+    // private void Attack()
+    // {
+    //     if (distance < minFollowDistance && canAttack)
+    //     {
+    //         _anim.SetTrigger("attack");
+    //         canAttack = false;
+    //         attackCooldown = attackDelay;
+    //     } else {
+    //         _anim.ResetTrigger("attack");
+    //     }
+    // }
 
     // private bool DetectPlayer()
     // {
@@ -116,16 +127,16 @@ public class Tanker : BaseEnemy
     //     return collidedWithPlayer;
     // }
 
-    private void DetectCaster()
-    {
-        //the idea here is to find a Caster near, to back away and get healed
-        foreach (Caster c in _gm.casterList) {
-            RaycastHit hit;
-            Collider casterCollider = c.GetComponent<Collider>(); ;
-            Physics.Raycast(transform.position, c.transform.position, out hit, maxFollowDistance, enemiesLayer);
-            if (hit.collider == casterCollider) { healerTarget = c.transform; break; }
-        };
+    // private void DetectCaster()
+    // {
+    //     //the idea here is to find a Caster near, to back away and get healed
+    //     foreach (Caster c in _gm.casterList) {
+    //         RaycastHit hit;
+    //         Collider casterCollider = c.GetComponent<Collider>(); ;
+    //         Physics.Raycast(transform.position, c.transform.position, out hit, maxFollowDistance, enemiesLayer);
+    //         if (hit.collider == casterCollider) { healerTarget = c.transform; break; }
+    //     };
 
-    }
+    // }
 }
 

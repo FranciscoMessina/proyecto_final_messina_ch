@@ -78,23 +78,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-8919905175409704907
-MonoBehaviour:
+--- !u!195 &1422109823921175116
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2972939766526787919}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f61a0316f1c8eb4f921b50146a54340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - {fileID: 3326948689017525472, guid: 95049ecbe26b38042b9435b8a85e12fc, type: 3}
-  - {fileID: 3317675090667664413, guid: 9b8f425efd80f5f42afda00416eb019f, type: 3}
-  - {fileID: 3528342780645154909, guid: 7661e368ca2415942be96c380247d9d5, type: 3}
-  chances: 060000000100000003000000
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &5438723270121860919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,11 +115,9 @@ MonoBehaviour:
   maxHealth: 100
   speed: 10
   rotationSpeed: 5
-  maxFollowDistance: 50
-  minFollowDistance: 4
+  chaseRange: 20
   attackDelay: 3
   raycastOrigin: {fileID: 0}
-  onDeathDrops: {fileID: -8919905175409704907}
   patrolPoints: []
   playerLayer:
     serializedVersion: 2
@@ -127,6 +130,8 @@ MonoBehaviour:
   spellSpeed: 30
   spellSpawnPoint: {fileID: 9198289367424498305}
   castDelay: 5
+  baseDmg: 0
+  dataValues: {fileID: 11400000, guid: a9c058215e5576946a25023b86fe6f96, type: 2}
 --- !u!1001 &2703119815538342942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 612dd85dc0679234c8e8d90ecb9f4c19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 612dd85dc0679234c8e8d90ecb9f4c19, type: 3}
       propertyPath: m_LocalPosition.z

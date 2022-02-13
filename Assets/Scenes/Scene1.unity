@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 1408b5be2de486c438831c4a1882fa2e, type: 2}
 --- !u!114 &3507546 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2453227530044769654, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
@@ -3130,7 +3130,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577389319}
-  m_LocalRotation: {x: 0.08072616, y: -0.002075837, z: 0.00016812346, w: 0.99673414}
+  m_LocalRotation: {x: 0.08072614, y: -0.0021877163, z: 0.00017718569, w: 0.9967339}
   m_LocalPosition: {x: -31.85, y: 12.4, z: -100.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3377,6 +3377,10 @@ PrefabInstance:
     - target: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4802134562677756, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
       propertyPath: m_RootOrder
@@ -3897,12 +3901,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corpser Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 5438723270121860919, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
-      propertyPath: dataValues
-      value: 
-      objectReference: {fileID: 11400000, guid: a9c058215e5576946a25023b86fe6f96, type: 2}
-    m_RemovedComponents:
-    - {fileID: -8919905175409704907, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
 --- !u!1001 &761712883
 PrefabInstance:
@@ -4549,7 +4548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999971
+      value: 0.9999973
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4557,11 +4556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0021205444
+      value: 0.0020097827
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00034820306
+      value: -0.00033001543
       objectReference: {fileID: 0}
     - target: {fileID: 2453227530044769608, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_Name
@@ -5330,12 +5329,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
-      propertyPath: dataValues
-      value: 
-      objectReference: {fileID: 11400000, guid: 6536ad503cdc1944197ec0d57fd35806, type: 2}
-    - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
-      propertyPath: patrolPoints.Array.size
-      value: 4
+      propertyPath: chaseRange
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1941978990, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
       propertyPath: patrolPoints.Array.data[0]
@@ -6673,6 +6668,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1081833421, guid: bf373c2c90eeb7748b1ffa346bd19ff0, type: 3}
+      propertyPath: chaseRange
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8606451209864762604, guid: bf373c2c90eeb7748b1ffa346bd19ff0, type: 3}
       propertyPath: m_Name
       value: Hitter Variant
