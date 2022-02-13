@@ -21,7 +21,7 @@ public class OnDeathDrops : MonoBehaviour
         }
     }
 
-    public GameObject getDrops()
+    public GameObject getDrop()
     {
         GameObject drop = Run<GameObject>(_drops);
 

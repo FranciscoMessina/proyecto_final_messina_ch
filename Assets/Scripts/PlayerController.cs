@@ -33,14 +33,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
-    private int _health;
+    //private int _health;
 
     //public event Action onDeath;
 
-    public int health {
+    /*public int health {
         get { return _health; }
         set { _health = value; }
-    }
+    }*/
+
     private void Awake()
     {
         
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         vInput = Input.GetAxis("Vertical") * moveSpeed;
         hInput = Input.GetAxis("Horizontal") * sideSpeed;
 
-        ChangeHealth();
+        //ChangeHealth();
 
         if (canShoot == false && shootTimer >= 0)
         {
@@ -108,18 +109,16 @@ public class PlayerController : MonoBehaviour
     public int GetHealth() {
         return currentHealth;
     }
-    void ChangeHealth() {
+
+    /*void ChangeHealth() {
         if (Input.GetKeyDown(KeyCode.J)) {
             Debug.Log('J');
             currentHealth -= 10;
-
-
         } 
         
         if(Input.GetKeyDown(KeyCode.K)) {
             Debug.Log('k');
             currentHealth += 10;
-
         }
 
         if(currentHealth <= 0) {
@@ -130,7 +129,7 @@ public class PlayerController : MonoBehaviour
         }
         // Debug.Log(currentHealth);
 
-    }
+    }*/
 
     void Shoot()
     {
@@ -186,8 +185,13 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        _health -= dmg;
+        currentHealth -= dmg;
         _anim.SetTrigger("stagger");
+    }
+
+    public void Heal(int healvalue)
+    {
+        currentHealth += healvalue;
     }
 
     

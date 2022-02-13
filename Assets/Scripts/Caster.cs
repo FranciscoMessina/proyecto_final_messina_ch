@@ -98,8 +98,9 @@ public class Caster : BaseEnemy
         _anim.SetTrigger("die");
         //Destroy(this.gameObject, 2.0f);
         canCast = false;
-        GameObject newDrop = onDeathDrops.getDrops();
+        _gm.GenerateDrop(this.gameObject.transform);
+        /*GameObject newDrop = onDeathDrops.getDrops();
         Debug.Log(newDrop.name);
-        Instantiate(newDrop, this.transform);
+        Instantiate(newDrop, this.transform);*/
     }
 }

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PickupBehaviour : MonoBehaviour
 {
+    [SerializeField]private enum pickupType {
+        powerup,
+        extralife,
+        heal
+    }
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +21,11 @@ public class PickupBehaviour : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        Destroy(this.gameObject);
     }
 }

@@ -11,7 +11,7 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected float minFollowDistance = 4;
     [SerializeField] protected float attackDelay = 3;
     [SerializeField] protected Transform raycastOrigin;
-    [SerializeField] protected OnDeathDrops onDeathDrops;
+    //[SerializeField] protected OnDeathDrops onDeathDrops;
     [SerializeField] protected Transform[] patrolPoints;
     [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected LayerMask enemiesLayer;

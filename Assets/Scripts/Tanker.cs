@@ -95,7 +95,7 @@ public class Tanker : BaseEnemy
 
     private void Attack()
     {
-        if (distance < minFollowDistance)
+        if (distance < minFollowDistance && canAttack)
         {
             _anim.SetTrigger("attack");
             canAttack = false;
