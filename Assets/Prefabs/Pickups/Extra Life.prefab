@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5382223544207822884}
   - component: {fileID: 5756058597917198123}
   - component: {fileID: 197700568384011933}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701387229053068085}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4352827445971120459}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cubes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,8 @@ GameObject:
   - component: {fileID: 5399521774075398263}
   - component: {fileID: -3236338849680289658}
   - component: {fileID: 7240898766111036616}
-  m_Layer: 0
+  - component: {fileID: 6350431838581183155}
+  m_Layer: 11
   m_Name: Extra Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 3317675090667664413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 2101418845759829893}
   - {fileID: 4352827445971120459}
@@ -193,6 +194,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d57ba8eebd1ed448ac29045383b3140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
+  cubes: {fileID: 721441137761329840}
+--- !u!65 &6350431838581183155
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317675090667664413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.86582994, y: 0.85524786, z: 1}
+  m_Center: {x: -0.0015866756, y: 0.007784307, z: 0}
 --- !u!1 &4717421657598552634
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +221,7 @@ GameObject:
   - component: {fileID: 2864191435082349720}
   - component: {fileID: 3916243034001747244}
   - component: {fileID: 1519950464894543011}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +299,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4717421657598552634}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -299,7 +315,7 @@ GameObject:
   - component: {fileID: 2101418845759829893}
   - component: {fileID: 8195586308788763933}
   - component: {fileID: 3889912932678404438}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5104,7 +5120,7 @@ GameObject:
   - component: {fileID: 1172956298657888630}
   - component: {fileID: 4325557732070278232}
   - component: {fileID: 4790730334184243755}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5182,7 +5198,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9072902629287413895}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

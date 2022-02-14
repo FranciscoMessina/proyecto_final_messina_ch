@@ -6,8 +6,8 @@ public class OnDeathDrops : MonoBehaviour
 {
 
     private Dictionary<GameObject, float> _drops = new Dictionary<GameObject, float>();
-    [SerializeField] List<GameObject> items = new List<GameObject>();
-    [SerializeField] List<int> chances = new List<int>();
+    [SerializeField] public List<GameObject> items = new List<GameObject>();
+    [SerializeField] public List<int> chances = new List<int>();
 
     private RouletteWheel _roulette;
         

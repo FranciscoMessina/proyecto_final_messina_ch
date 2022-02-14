@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     private int score;
     private OnDeathDrops onDeathDrops;
 
+    
+
     public List<Caster> casterList = new List<Caster>();
 
     private PlayerController player;
@@ -28,7 +30,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        DontDestroyOnLoad(this);
+        onDeathDrops = GetComponent<OnDeathDrops>();
     }
 
     void Update()
@@ -65,9 +68,9 @@ public class GameManager : MonoBehaviour
         casterList.Add(caster);
     }
 
-    public void GenerateDrop(Transform location)
+    public void GenerateDrop(Vector3 location)
     {
-        GameObject newDrop = Instantiate(onDeathDrops.getDrop(), location) as GameObject;
+        GameObject newDrop = Instantiate(onDeathDrops.getDrop(), location + (transform.up * 4), new Quaternion()) as GameObject;
         Debug.Log(newDrop.name);
         //Instantiate(newDrop, location);
     }

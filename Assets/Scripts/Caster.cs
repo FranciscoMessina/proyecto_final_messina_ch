@@ -24,8 +24,6 @@ public class Caster : BaseEnemy
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         _gm.AddCasterToArray(this);
-        Invoke("GetTarget", 0.1f);
-
 
         spellSpeed = dataValues.spellSpeed;
         maxHealth = dataValues.casterHealth;
@@ -98,9 +96,9 @@ public class Caster : BaseEnemy
     {
         dead = true;
         _anim.SetTrigger("die");
-        //Destroy(this.gameObject, 2.0f);
+        Destroy(this.gameObject, 2.0f);
         canCast = false;
-        _gm.GenerateDrop(this.gameObject.transform);
+        _gm.GenerateDrop(this.gameObject.transform.position);
         /*GameObject newDrop = onDeathDrops.getDrops();
         Debug.Log(newDrop.name);
         Instantiate(newDrop, this.transform);*/
