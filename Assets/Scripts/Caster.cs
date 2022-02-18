@@ -99,8 +99,5 @@ public class Caster : BaseEnemy
         Destroy(this.gameObject, 2.0f);
         canCast = false;
         _gm.GenerateDrop(this.gameObject.transform.position);
-        /*GameObject newDrop = onDeathDrops.getDrops();
-        Debug.Log(newDrop.name);
-        Instantiate(newDrop, this.transform);*/
     }
 }

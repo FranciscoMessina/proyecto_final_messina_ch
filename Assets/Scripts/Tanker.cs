@@ -10,6 +10,7 @@ public class Tanker : BaseEnemy
     private float attackCooldown;
     private bool canAttack;
     private float damage;
+    private bool dead = false;
 
     [SerializeField] private TankerData dataValues;
 
@@ -48,20 +49,38 @@ public class Tanker : BaseEnemy
         else if (canAttack == false && attackCooldown <= 0) canAttack = true;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "PlayerSpell" && dead == false)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        dead = true;
+        _anim.SetTrigger("die");
+        Destroy(this.gameObject, 3.5f);
+        canAttack = false;
+        attackCooldown = 10;
+        _gm.GenerateDrop(this.gameObject.transform.position);
+    }
+
     // void FixedUpdate()
     // {
     //     /*if (currentHealth <= maxHealth / 4) {
     //         try { FallBack(); } catch (Exception e){ Debug.Log(e); } }
     //     else*/
-        
-        
+
+
     //     if (DetectPlayer()) { 
     //         MoveToPlayer();
     //         Attack(); 
     //     } else {
     //         Patrol();
     //     }
-        
+
     // }
 
 

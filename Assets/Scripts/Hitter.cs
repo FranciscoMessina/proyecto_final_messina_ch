@@ -7,6 +7,7 @@ public class Hitter : BaseEnemy
 {
     private float attackCooldown;
     private bool canAttack;
+    private bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,22 @@ public class Hitter : BaseEnemy
         else if (canAttack == false && attackCooldown <= 0) canAttack = true;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "PlayerSpell" && dead == false)
+        {
+            Die();
+        }
+    }
+
+
+    public void Die()
+    {
+        dead = true;
+        _anim.SetTrigger("die");
+        Destroy(this.gameObject, 2.0f);
+        _gm.GenerateDrop(this.gameObject.transform.position);
+    }
 
 
     // public override void MoveToPlayer()

@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662456816089060983}
   - component: {fileID: -5951133880890099453}
-  - component: {fileID: 5815672648472638263}
-  - component: {fileID: 5659254958528301907}
+  - component: {fileID: 961629243021087787}
   m_Layer: 10
   m_Name: AreaSpell
   m_TagString: PlayerSpell
@@ -45,9 +44,9 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 31
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5815672648472638263
+--- !u!114 &961629243021087787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,22 +55,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 712808682357162713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d69e5a6f687874aad6d36fed785fb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f91343d68ad12a4d89b7aad7446ccf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeOnScreen: 1.1
---- !u!114 &5659254958528301907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712808682357162713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7b90406f58eede4dbef3f1bf45c1381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _testsphere: {fileID: 0}
 --- !u!1 &8570723980899936283
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +228,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 40
       minScalar: 5
       maxCurve:
         serializedVersion: 2

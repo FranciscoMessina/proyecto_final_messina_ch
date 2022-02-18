@@ -70,7 +70,8 @@ public class GameManager : MonoBehaviour
 
     public void GenerateDrop(Vector3 location)
     {
-        GameObject newDrop = Instantiate(onDeathDrops.getDrop(), location + (transform.up * 4), new Quaternion()) as GameObject;
+        Vector3 spawnLocation = new Vector3(location.x, 8, location.z);
+        GameObject newDrop = Instantiate(onDeathDrops.getDrop(), spawnLocation /*+ (transform.up * 4)*/, new Quaternion()) as GameObject;
         Debug.Log(newDrop.name);
         //Instantiate(newDrop, location);
     }

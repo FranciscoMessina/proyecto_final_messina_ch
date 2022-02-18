@@ -12,12 +12,12 @@ public class PickupBehaviour : MonoBehaviour
 
     [SerializeField] pickupType type;
     [SerializeField] GameObject cubes;
-
+    private GameManager _gm;
     
     // Start is called before the first frame update
     void Start()
     {
-
+        _gm = GameManager.instance;
     }
 
     // Update is called once per frame
@@ -28,6 +28,9 @@ public class PickupBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (type == pickupType.heal) _gm.GetPlayerReference().Heal(20);
+        else if (type == pickupType.powerup) _gm.GetPlayerReference().Heal(20);
+        else if (type == pickupType.extralife) _gm.GetPlayerReference().OneUp();
         Destroy(this.gameObject);
     }
 }

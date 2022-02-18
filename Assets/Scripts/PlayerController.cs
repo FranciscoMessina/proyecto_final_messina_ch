@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject areaSpell;
 
+    [SerializeField] private int lives;
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
     //private int _health;
@@ -111,6 +112,11 @@ public class PlayerController : MonoBehaviour
 
     public int GetHealth() {
         return currentHealth;
+    }
+
+    public int GetLives()
+    {
+        return lives;
     }
 
     /*void ChangeHealth() {
@@ -195,6 +201,11 @@ public class PlayerController : MonoBehaviour
     public void Heal(int healvalue)
     {
         currentHealth += healvalue;
+    }
+
+    public void OneUp()
+    {
+        lives += 1;
     }
 
     public void FinishedCasting()

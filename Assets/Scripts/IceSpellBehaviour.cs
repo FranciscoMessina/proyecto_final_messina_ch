@@ -20,4 +20,6 @@ public class IceSpellBehaviour : MonoBehaviour
         if (timeOnScreen <= 0)
             Destroy(this.gameObject);
     }
+
+    
 }
