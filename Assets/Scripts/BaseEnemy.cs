@@ -25,6 +25,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected GameManager _gm;
     protected Animator _anim;
     protected float distanceToTarget;
+    public int meleeDamage;
 
 
     // Start is called before the first frame update

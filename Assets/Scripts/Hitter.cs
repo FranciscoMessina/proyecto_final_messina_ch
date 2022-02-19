@@ -8,6 +8,7 @@ public class Hitter : BaseEnemy
     private float attackCooldown;
     private bool canAttack;
     private bool dead = false;
+    public int dmg = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,7 @@ public class Hitter : BaseEnemy
         _gm.GenerateDrop(this.gameObject.transform.position);
     }
 
+    
 
     // public override void MoveToPlayer()
     // {

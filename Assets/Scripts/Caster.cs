@@ -9,7 +9,7 @@ public class Caster : BaseEnemy
     [SerializeField] private float spellSpeed;
     [SerializeField] private Transform spellSpawnPoint;
     [SerializeField] private float castDelay;
-    [SerializeField] private int baseDmg;
+    public int baseDmg;
     private float castCooldown;
     private bool canCast;
     private bool dead = false;

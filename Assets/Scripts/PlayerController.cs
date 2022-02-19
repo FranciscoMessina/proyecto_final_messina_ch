@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
 
-    [SerializeField] private Vector3 spawnLocation;
+    [SerializeField] private Transform spawnLocation;
 
     private void Awake()
     {
@@ -186,12 +186,17 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int damageToTake)
     {
-        currentHealth -= dmg;
+
+        currentHealth -= damageToTake;
+
+
         if (currentHealth > 0)
         {
-            _anim.SetTrigger("stagger");
+            _anim.SetTrigger("HitTrig");
+            isCasting = true;
+            Invoke("FinishedCasting", 1);
         }
 
         else if (currentHealth <= 0 && lives > 0)
@@ -202,7 +207,7 @@ public class PlayerController : MonoBehaviour
 
         else if (currentHealth <= 0 && lives <= 0)
         {
-
+            Die();
         }
     }
 
@@ -223,7 +228,13 @@ public class PlayerController : MonoBehaviour
 
     private void Respawn()
     {
-        transform.position = spawnLocation;
+        transform.position = spawnLocation.position;
+    }
+
+    private void Die()
+    {
+        _anim.SetTrigger("HitTrig");
+        isCasting = true;
     }
 
 

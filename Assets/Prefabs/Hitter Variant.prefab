@@ -74,6 +74,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   startWaitTime: 0
+  meleeDamage: 10
+  dmg: 10
 --- !u!195 &242358747654016338
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -106,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8386671662090722594}
   - component: {fileID: 9050370390951903840}
+  - component: {fileID: 6724061324343850433}
   m_Layer: 8
   m_Name: HandCollider
   m_TagString: Hitter
@@ -135,11 +138,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8674375104787230097}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.13070475, y: 0.222712, z: 0.1408398}
   m_Center: {x: -0.005851861, y: 0.06892587, z: -0.004328005}
+--- !u!114 &6724061324343850433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674375104787230097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1887bde4293cea047a284c9d3750a8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8912949217341041085
 PrefabInstance:
   m_ObjectHideFlags: 0

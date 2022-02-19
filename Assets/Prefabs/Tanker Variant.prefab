@@ -64,7 +64,7 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   chaseRange: 20
-  attackDelay: 1
+  attackDelay: 2
   raycastOrigin: {fileID: 5205313269822475303}
   patrolPoints:
   - {fileID: 0}
@@ -78,6 +78,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   startWaitTime: 10
+  meleeDamage: 30
   dataValues: {fileID: 11400000, guid: 6536ad503cdc1944197ec0d57fd35806, type: 2}
 --- !u!195 &1819136156358295603
 NavMeshAgent:
@@ -170,7 +171,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8753175336351643977}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1736933, y: 0.2583178, z: 0.13096453}
