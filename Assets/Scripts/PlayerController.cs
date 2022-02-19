@@ -35,14 +35,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int lives;
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
-    //private int _health;
 
-    //public event Action onDeath;
-
-    /*public int health {
-        get { return _health; }
-        set { _health = value; }
-    }*/
+    [SerializeField] private Vector3 spawnLocation;
 
     private void Awake()
     {
@@ -166,7 +160,7 @@ public class PlayerController : MonoBehaviour
 
     public void CastArea()
     {
-        GameObject newarea = Instantiate(areaSpell, this.transform.position, this.transform.rotation) as GameObject;
+        GameObject newarea = Instantiate(areaSpell, this.transform.position + (transform.up/2), this.transform.rotation) as GameObject;
     }
 
     void Walk()
@@ -195,7 +189,21 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
-        _anim.SetTrigger("stagger");
+        if (currentHealth > 0)
+        {
+            _anim.SetTrigger("stagger");
+        }
+
+        else if (currentHealth <= 0 && lives > 0)
+        {
+            Respawn();
+            lives -= 1;
+        }
+
+        else if (currentHealth <= 0 && lives <= 0)
+        {
+
+        }
     }
 
     public void Heal(int healvalue)
@@ -212,5 +220,11 @@ public class PlayerController : MonoBehaviour
     {
         isCasting = false;
     }
-    
+
+    private void Respawn()
+    {
+        transform.position = spawnLocation;
+    }
+
+
 }
