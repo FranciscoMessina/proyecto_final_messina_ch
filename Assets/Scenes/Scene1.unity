@@ -4679,7 +4679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2453227530044769654, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: lives
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2453227530044769654, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: maxHealth
@@ -4689,6 +4689,10 @@ PrefabInstance:
       propertyPath: GameCamera
       value: 
       objectReference: {fileID: 577389322}
+    - target: {fileID: 2453227530044769654, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
+      propertyPath: spawnLocation
+      value: 
+      objectReference: {fileID: 1910568989}
     - target: {fileID: 2697880015721267988, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.6
@@ -6792,14 +6796,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1081833421, guid: bf373c2c90eeb7748b1ffa346bd19ff0, type: 3}
-      propertyPath: chaseRange
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1081833421, guid: bf373c2c90eeb7748b1ffa346bd19ff0, type: 3}
-      propertyPath: meleeDamage
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 8606451209864762604, guid: bf373c2c90eeb7748b1ffa346bd19ff0, type: 3}
       propertyPath: m_Name
       value: Hitter Variant
@@ -8899,8 +8895,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 800, y: 1, z: 800}
-  m_Center: {x: 0, y: 25, z: 0}
+  m_Size: {x: 800, y: 1.2190189, z: 800}
+  m_Center: {x: 0, y: 25.109509, z: 0}
 --- !u!1001 &1674047171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9772,7 +9768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910568988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32, y: 0, z: -85}
+  m_LocalPosition: {x: -32, y: 4, z: -85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

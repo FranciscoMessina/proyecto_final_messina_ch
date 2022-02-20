@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
     {
 
         currentHealth -= damageToTake;
-
+        if (currentHealth < 0) currentHealth = 0;
 
         if (currentHealth > 0)
         {
@@ -214,6 +214,7 @@ public class PlayerController : MonoBehaviour
     public void Heal(int healvalue)
     {
         currentHealth += healvalue;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
     public void OneUp()
@@ -229,11 +230,12 @@ public class PlayerController : MonoBehaviour
     private void Respawn()
     {
         transform.position = spawnLocation.position;
+        currentHealth = maxHealth;
     }
 
     private void Die()
     {
-        _anim.SetTrigger("HitTrig");
+        _anim.SetTrigger("DeathTrig");
         isCasting = true;
     }
 

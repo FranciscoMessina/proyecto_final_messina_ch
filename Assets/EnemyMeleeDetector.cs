@@ -7,6 +7,9 @@ public class EnemyMeleeDetector : MonoBehaviour
     private GameManager _gm;
     private int dmg;
     private PlayerController player;
+    private bool canHit = true;
+    private float hitDelay = 1.5f;
+    private float hitTimer;
 
     private void Start()
     {
@@ -14,8 +17,20 @@ public class EnemyMeleeDetector : MonoBehaviour
         dmg = GetComponentInParent<BaseEnemy>().meleeDamage;
     }
 
+    private void Update()
+    {
+        if (canHit == false) hitTimer -= Time.deltaTime;
+        if (hitTimer <= 0) canHit = true;
+                
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        _gm.GetPlayerReference().TakeDamage(dmg);         
+        if (canHit == true) 
+        {
+        _gm.GetPlayerReference().TakeDamage(dmg);
+            canHit = false;
+            hitTimer = hitDelay;
+        }
     }
 }

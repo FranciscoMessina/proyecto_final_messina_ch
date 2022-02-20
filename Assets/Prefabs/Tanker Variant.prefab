@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5384597300615516783}
   - component: {fileID: 8316118270425419206}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HandCollider
   m_TagString: Tanker
   m_Icon: {fileID: 0}
