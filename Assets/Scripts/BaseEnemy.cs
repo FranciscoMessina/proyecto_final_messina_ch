@@ -84,6 +84,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         currentHealth -= dmg;
         isProvoked = true;
+        Debug.Log(currentHealth);
 
         if(currentHealth <= 0 && dead == false)
         {

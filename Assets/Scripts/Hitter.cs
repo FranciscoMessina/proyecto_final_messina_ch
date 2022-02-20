@@ -42,13 +42,13 @@ public class Hitter : BaseEnemy
         else if (canAttack == false && attackCooldown <= 0) canAttack = true;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "PlayerSpell" && dead == false)
-        {
-            TakeDamage(10);
-        }
-    }
+    // private void OnTriggerStay(Collider other)
+    // {
+    //     if (other.gameObject.tag == "PlayerSpell" && dead == false)
+    //     {
+    //         TakeDamage(10);
+    //     }
+    // }
 
 
     

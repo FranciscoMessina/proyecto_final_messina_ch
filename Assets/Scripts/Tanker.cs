@@ -21,7 +21,7 @@ public class Tanker : BaseEnemy
         startingLocation = transform.position;
         randomSpot = Random.Range(0, patrolPoints.Length);
 
-        
+
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         Invoke("GetTarget", 0.1f);
@@ -51,13 +51,13 @@ public class Tanker : BaseEnemy
         else if (canAttack == false && attackCooldown <= 0) canAttack = true;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "PlayerSpell" && dead == false)
-        {
-            TakeDamage(10);
-        }
-    }
+    // private void OnTriggerStay(Collider other)
+    // {
+    //     if (other.gameObject.tag == "PlayerSpell" && dead == false)
+    //     {
+    //         TakeDamage(10);
+    //     }
+    // }
 
     // public void Die()
     // {

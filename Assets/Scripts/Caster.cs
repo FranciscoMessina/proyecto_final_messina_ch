@@ -71,13 +71,13 @@ public class Caster : BaseEnemy
 
     
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "PlayerSpell" && dead == false)
-        {
-            TakeDamage(10);
-        }
-    }
+    // private void OnTriggerStay(Collider other)
+    // {
+    //     if (other.gameObject.tag == "PlayerSpell" && dead == false)
+    //     {
+    //         TakeDamage(10);
+    //     }
+    // }
 
     private void Cast()
     {
