@@ -51,14 +51,6 @@ public class Hitter : BaseEnemy
     }
 
 
-    // public void Die()
-    // {
-    //     dead = true;
-    //     _anim.SetTrigger("die");
-    //     Destroy(this.gameObject, 2.0f);
-    //     _gm.GenerateDrop(this.gameObject.transform.position);
-    // }
-
     
 }
 

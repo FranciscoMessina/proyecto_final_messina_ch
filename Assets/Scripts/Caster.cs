@@ -12,7 +12,6 @@ public class Caster : BaseEnemy
     public int baseDmg;
     private float castCooldown;
     private bool canCast;
-    // private bool dead = false;
     private Quaternion rotation;
 
 
@@ -94,12 +93,9 @@ public class Caster : BaseEnemy
         spellRB.velocity = this.transform.forward * spellSpeed;
     }
 
-    // public void Die()
-    // {
-    //     dead = true;
-    //     _anim.SetTrigger("die");
-    //     Destroy(this.gameObject, 2.0f);
-    //     canCast = false;
-    //     _gm.GenerateDrop(this.gameObject.transform.position);
-    // }
+
+    public override void Die() {
+        base.Die();
+        canCast = false;
+    }
 }

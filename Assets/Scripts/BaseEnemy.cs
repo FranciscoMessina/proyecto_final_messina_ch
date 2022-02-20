@@ -72,7 +72,7 @@ public abstract class BaseEnemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 
-    public void Die()
+    public virtual void Die()
     {
         dead = true;
         _anim.SetTrigger("die");
