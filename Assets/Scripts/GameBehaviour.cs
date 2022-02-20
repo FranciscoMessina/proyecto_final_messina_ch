@@ -31,20 +31,25 @@ public class GameBehaviour : MonoBehaviour
 
     
 
-    public void GoToNextLevel(int levelToGo) 
+    public void GoToNextLevel() 
     {
-        fade.SetTrigger("FadeOut");
-        Invoke("lvlmgr.LoadScene(levelToGo)", 2);
+        Invoke("lvlmgr.LoadScene()", 2);
     }
 
     public void GoToMain()
     {
-
         lvlmgr.LoadScene(0);
     }
 
     public void Die() 
     {
         gameOver.SetTrigger("Ded");
+        Invoke("FadeOut", 3f);
+        Invoke("GoToMain", 5f);
+    }
+
+    private void FadeOut()
+    {
+        fade.SetTrigger("FadeOut");
     }
 }
