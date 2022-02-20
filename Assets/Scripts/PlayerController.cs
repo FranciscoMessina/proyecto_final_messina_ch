@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject areaSpell;
 
     [SerializeField] private int lives;
-    [SerializeField] private int maxHealth = 100;
-    private int currentHealth;
+    [SerializeField] private float maxHealth = 100;
+    private float currentHealth;
 
     [SerializeField] private Transform spawnLocation;
     [SerializeField] private GameBehaviour _gb;
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public int GetHealth() {
+    public float GetHealth() {
         return currentHealth;
     }
 
@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void TakeDamage(int damageToTake)
+    public void TakeDamage(float damageToTake)
     {
 
         currentHealth -= damageToTake;
