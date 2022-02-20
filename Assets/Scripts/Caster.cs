@@ -69,15 +69,6 @@ public class Caster : BaseEnemy
         _anim.SetFloat("rotate", 1);
     }
 
-    
-
-    // private void OnTriggerStay(Collider other)
-    // {
-    //     if (other.gameObject.tag == "PlayerSpell" && dead == false)
-    //     {
-    //         TakeDamage(10);
-    //     }
-    // }
 
     private void Cast()
     {
