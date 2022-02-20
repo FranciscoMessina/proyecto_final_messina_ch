@@ -26,14 +26,10 @@ public abstract class BaseEnemy : MonoBehaviour
     protected Animator _anim;
     protected float distanceToTarget;
     public int meleeDamage;
+    protected bool dead = false;
 
+    protected float currentHealth;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        startingLocation = transform.position;
-        randomSpot = Random.Range(0, patrolPoints.Length);
-    }
 
     protected virtual void EngageTarget()
     {
@@ -48,14 +44,12 @@ public abstract class BaseEnemy : MonoBehaviour
             AttackTarget();
         }
 
-        // _anim.SetInteger("animState", 0);
     }
 
     protected void AttackTarget()
     {
         _anim.SetInteger("animState", 2);
         _anim.SetTrigger("attack");
-        // GetComponent<Animator>().SetBool("attack", true);
     }
 
     protected void ChaseTarget()
@@ -63,10 +57,8 @@ public abstract class BaseEnemy : MonoBehaviour
         _anim.ResetTrigger("attack");
         _anim.SetInteger("animState", 1);
          
-
-        // GetComponent<Animator>().SetBool("attack", false);
-        // GetComponent<Animator>().SetTrigger("move");
         navMeshAgent.SetDestination(target.position);
+        
     }
 
     protected void FaceTarget() {
@@ -75,25 +67,28 @@ public abstract class BaseEnemy : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
 
-    // public virtual void MoveToPlayer()
-    // {
-    //     distanceToTarget = Vector3.Distance(transform.position, target.position);
-    //     var direction = (target.position -  transform.position).normalized;
-    //     Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
-    //     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-
-    //     // TODO: Change animation to be reusable between enemies
-    //     if (distance < maxFollowDistance && distance >= minFollowDistance)
-    //     {// _anim.SetInteger("hAnim", 1);
-    //         transform.position += direction * speed * Time.deltaTime;
-    //     }
-    //     // else _anim.SetInteger("hAnim", 0);
-
-    // }
-
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+
+    public virtual void Die()
+    {
+        dead = true;
+        _anim.SetTrigger("die");
+        Destroy(this.gameObject, 2.0f);
+        _gm.GenerateDrop(this.gameObject.transform.position);
+    }
+
+    public void TakeDamage(float dmg) 
+    {
+        currentHealth -= dmg;
+        isProvoked = true;
+
+        if(currentHealth <= 0 && dead == false)
+        {
+            Die();
+        }
     }
 
     // protected void Patrol()
@@ -121,25 +116,6 @@ public abstract class BaseEnemy : MonoBehaviour
     //     return collidedWithPlayer;
     // }
 
-    
-    // public virtual void MoveToDestination(Vector3 destination) {
-
-    //     distance = Vector3.Distance(transform.position, destination);
-
-    //     var direction = (destination - transform.position).normalized;
-    //     direction.y = 0;
-    //     Quaternion rotation = Quaternion.LookRotation(destination - transform.position);
-    //     rotation.x = 0;
-    //     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-
-    //     // TODO: Change animation to be reusable between enemies
-    //     if(distance > 1f) {
-    //         // _anim.SetInteger("tAnim", 1);
-    //         transform.position += direction * speed * Time.deltaTime;
-    //     } else {
-    //         // _anim.SetInteger("tAnim", 0);
-    //     }
-    // }
 
     protected void GetTarget() {
         target = _gm.GetPlayerReference().transform;

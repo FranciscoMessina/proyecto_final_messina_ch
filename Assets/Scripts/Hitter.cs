@@ -7,7 +7,7 @@ public class Hitter : BaseEnemy
 {
     private float attackCooldown;
     private bool canAttack;
-    private bool dead = false;
+    // private bool dead = false;
     public int dmg = 10;
 
     // Start is called before the first frame update
@@ -17,6 +17,11 @@ public class Hitter : BaseEnemy
         _gm = GameManager.instance;
         Invoke("GetTarget", 0.1f);
         navMeshAgent = GetComponent<NavMeshAgent>();
+        currentHealth = maxHealth;
+
+
+        startingLocation = transform.position;
+        randomSpot = Random.Range(0, patrolPoints.Length);
     }
 
     // Update is called once per frame
@@ -41,41 +46,11 @@ public class Hitter : BaseEnemy
     {
         if (other.gameObject.tag == "PlayerSpell" && dead == false)
         {
-            Die();
+            TakeDamage(10);
         }
     }
 
 
-    public void Die()
-    {
-        dead = true;
-        _anim.SetTrigger("die");
-        Destroy(this.gameObject, 2.0f);
-        _gm.GenerateDrop(this.gameObject.transform.position);
-    }
-
     
-
-    // public override void MoveToPlayer()
-    // {
-    //     base.MoveToPlayer();
-
-    //     if (distance < maxFollowDistance && distance >= minFollowDistance)
-    //     {
-    //         _anim.SetInteger("hAnim", 1);
-    //     }
-    //     else _anim.SetInteger("hAnim", 0);
-
-    // }
-
-    // private void Attack()
-    // {
-    //     if (distance < minFollowDistance)
-    //     {
-    //         _anim.SetTrigger("attack");
-    //         canAttack = false;
-    //         attackCooldown = attackDelay;
-    //     }
-    // }
 }
 

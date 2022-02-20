@@ -8,7 +8,7 @@ public class EventSceneHandler : MonoBehaviour
 
     [SerializeField] private ParticleSystem wind;
     [SerializeField] private ParticleSystem rain;
-    [SerializeField] private Light light;
+    [SerializeField] private Light aLigth;
     private Color color;
 
     // Start is called before the first frame update
@@ -25,13 +25,13 @@ public class EventSceneHandler : MonoBehaviour
     public void Sunset() 
     {
         Debug.Log("Sunset Handled");
-        light.transform.rotation = Quaternion.Euler(new Vector3(-45, 0, 0));
+        aLigth.transform.rotation = Quaternion.Euler(new Vector3(-45, 0, 0));
     }
 
     public void Sunrise() 
     {
         Debug.Log("Sunrise Handled");
-        light.transform.rotation = Quaternion.Euler(new Vector3(45, 0, 0));
+        aLigth.transform.rotation = Quaternion.Euler(new Vector3(45, 0, 0));
 
     }
 
@@ -47,7 +47,7 @@ public class EventSceneHandler : MonoBehaviour
     {
         if(wind.isPlaying) wind.Stop();
         if(rain.isPlaying) rain.Stop();
-        light.color = Color.white;
+        aLigth.color = Color.white;
     }
 
 
@@ -55,7 +55,7 @@ public class EventSceneHandler : MonoBehaviour
     {
         if(!wind.isPlaying) wind.Play();
         if(rain.isPlaying) rain.Stop();
-        light.color = Color.white;
+        aLigth.color = Color.white;
     }
 
 
@@ -63,6 +63,6 @@ public class EventSceneHandler : MonoBehaviour
     {
         if(wind.isPlaying) wind.Stop();
         if(!rain.isPlaying) rain.Play();
-        light.color = Color.grey;
+        aLigth.color = Color.grey;
     }
 }

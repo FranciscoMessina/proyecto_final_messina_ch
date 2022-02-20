@@ -6,11 +6,11 @@ using UnityEngine.AI;
 public class Tanker : BaseEnemy
 {
     private Transform healerTarget;
-    private float currentHealth;
+    // private float currentHealth;
     private float attackCooldown;
     private bool canAttack;
     private float damage;
-    private bool dead = false;
+    // private bool dead = false;
 
     [SerializeField] private TankerData dataValues;
 
@@ -18,16 +18,18 @@ public class Tanker : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {
+        startingLocation = transform.position;
+        randomSpot = Random.Range(0, patrolPoints.Length);
+
+        
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         Invoke("GetTarget", 0.1f);
-        // startingLocation = transform.position;
-        // randomSpot = Random.Range(0, patrolPoints.Length);
-        // Debug.Log(currentHealth);
+
+        currentHealth = maxHealth;
+
         navMeshAgent = GetComponent<NavMeshAgent>();
 
-
-        currentHealth = dataValues.maxHealth;
         damage = dataValues.damage;
         speed = dataValues.speed;
 
@@ -53,19 +55,19 @@ public class Tanker : BaseEnemy
     {
         if (other.gameObject.tag == "PlayerSpell" && dead == false)
         {
-            Die();
+            TakeDamage(10);
         }
     }
 
-    public void Die()
-    {
-        dead = true;
-        _anim.SetTrigger("die");
-        Destroy(this.gameObject, 3.5f);
-        canAttack = false;
-        attackCooldown = 10;
-        _gm.GenerateDrop(this.gameObject.transform.position);
-    }
+    // public void Die()
+    // {
+    //     dead = true;
+    //     _anim.SetTrigger("die");
+    //     Destroy(this.gameObject, 3.5f);
+    //     canAttack = false;
+    //     attackCooldown = 10;
+    //     _gm.GenerateDrop(this.gameObject.transform.position);
+    // }
 
     // void FixedUpdate()
     // {
@@ -84,30 +86,6 @@ public class Tanker : BaseEnemy
     // }
 
 
-    // public override void MoveToPlayer()
-    // {
-    //     base.MoveToPlayer();
-
-    //     if (distance < maxFollowDistance && distance >= minFollowDistance)
-    //     {
-    //         _anim.SetInteger("tAnim", 1);
-    //         // transform.position += direction * speed * Time.deltaTime;
-    //     }
-    //     else _anim.SetInteger("tAnim", 0);
-
-    // }
-
-    // public override void MoveToDestination(Vector3 destination) {
-    //     base.MoveToDestination(destination);
-
-    //     if(distance > 1f) {
-    //         _anim.SetInteger("tAnim", 1);
-    //         // transform.position += base. * speed * Time.deltaTime;
-    //     } else {
-    //         _anim.SetInteger("tAnim", 0);
-    //     }
-    // }
-
     // public void FallBack()
     // {
     //     var direction = (healerTarget.position - transform.position).normalized;
@@ -121,18 +99,6 @@ public class Tanker : BaseEnemy
     //     }
     //     else _anim.SetInteger("tAnim", 0);
 
-    // }
-
-    // private void Attack()
-    // {
-    //     if (distance < minFollowDistance && canAttack)
-    //     {
-    //         _anim.SetTrigger("attack");
-    //         canAttack = false;
-    //         attackCooldown = attackDelay;
-    //     } else {
-    //         _anim.ResetTrigger("attack");
-    //     }
     // }
 
     // private bool DetectPlayer()

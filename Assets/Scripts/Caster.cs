@@ -12,7 +12,6 @@ public class Caster : BaseEnemy
     public int baseDmg;
     private float castCooldown;
     private bool canCast;
-    private bool dead = false;
     private Quaternion rotation;
 
 
@@ -24,9 +23,15 @@ public class Caster : BaseEnemy
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         _gm.AddCasterToArray(this);
+        Invoke("GetTarget", 0.1f);
+
+        startingLocation = transform.position;
+        randomSpot = Random.Range(0, patrolPoints.Length);
+    
+
+        currentHealth = maxHealth;
 
         spellSpeed = dataValues.spellSpeed;
-        maxHealth = dataValues.casterHealth;
         speed = dataValues.walkSpeed;
         baseDmg = dataValues.casterDamage;
 
@@ -59,13 +64,9 @@ public class Caster : BaseEnemy
 
     public void Rotate()
     {
-
-        // Aca da un null reference y no entiendo porque. Antes de crear la clase base funcionaba, pero en los otros enemigos tiene la misma linea y sigue funcionando
         Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         _anim.SetFloat("rotate", 1);
-
-
     }
 
     
@@ -74,7 +75,7 @@ public class Caster : BaseEnemy
     {
         if (other.gameObject.tag == "PlayerSpell" && dead == false)
         {
-            Die();
+            TakeDamage(10);
         }
     }
 
@@ -92,12 +93,9 @@ public class Caster : BaseEnemy
         spellRB.velocity = this.transform.forward * spellSpeed;
     }
 
-    public void Die()
-    {
-        dead = true;
-        _anim.SetTrigger("die");
-        Destroy(this.gameObject, 2.0f);
+
+    public override void Die() {
+        base.Die();
         canCast = false;
-        _gm.GenerateDrop(this.gameObject.transform.position);
     }
 }
