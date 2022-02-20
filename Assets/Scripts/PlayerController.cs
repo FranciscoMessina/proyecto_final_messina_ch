@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private int currentHealth;
 
     [SerializeField] private Transform spawnLocation;
+    [SerializeField] private GameBehaviour _gb;
 
     private void Awake()
     {
@@ -237,6 +238,7 @@ public class PlayerController : MonoBehaviour
     {
         _anim.SetTrigger("DeathTrig");
         isCasting = true;
+        _gb.Die();
     }
 
 

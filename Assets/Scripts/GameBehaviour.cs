@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameBehaviour : MonoBehaviour
 {
@@ -10,9 +11,13 @@ public class GameBehaviour : MonoBehaviour
     private int pts;
     [SerializeField] private int pointsToNextLevel;
     private string labelText;
+    [SerializeField] LevelManager lvlmgr;
 
-    [SerializeField] private int NextLevel;
+    [SerializeField] private int nextLevel;
     private bool scoreReached = false;
+
+    [SerializeField] Animator gameOver;
+    [SerializeField] Animator fade;
 
     public int Points
     {
@@ -24,10 +29,22 @@ public class GameBehaviour : MonoBehaviour
         }
     }
 
-    private void OnGUI()
+    
+
+    public void GoToNextLevel(int levelToGo) 
     {
-        
+        fade.SetTrigger("FadeOut");
+        Invoke("lvlmgr.LoadScene(levelToGo)", 2);
     }
 
-    public void Die() { }
+    public void GoToMain()
+    {
+
+        lvlmgr.LoadScene(0);
+    }
+
+    public void Die() 
+    {
+        gameOver.SetTrigger("Ded");
+    }
 }
