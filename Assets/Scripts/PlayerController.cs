@@ -9,13 +9,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sideSpeed = 6;
     private Rigidbody _rb;
     //private CinemachineTouchInputMapper _cM;
-
     private float vInput;
     private float hInput;
-
     [SerializeField] private Camera GameCamera;
     private Animator _anim;
-
     private bool canShoot = true;
     [SerializeField] private float shootDelay = 1;
     private bool canArea = true;
@@ -23,9 +20,7 @@ public class PlayerController : MonoBehaviour
     private float shootTimer;
     private float areaTimer;
     private bool isCasting = false;
-
     private GameManager _gm;
-
     [SerializeField] private GameObject iceSpell;
     [SerializeField] private float spellSpeed;
     [SerializeField] private Transform spellSpawnPoint;
@@ -35,15 +30,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int lives;
     [SerializeField] private float maxHealth = 100;
     private float currentHealth;
-
     [SerializeField] private Transform spawnLocation;
     [SerializeField] private GameBehaviour _gb;
-
-    private void Awake()
-    {
-        
-    }
-
 
     // Start is called before the first frame update
     void Start()
@@ -114,30 +102,9 @@ public class PlayerController : MonoBehaviour
         return lives;
     }
 
-    /*void ChangeHealth() {
-        if (Input.GetKeyDown(KeyCode.J)) {
-            Debug.Log('J');
-            currentHealth -= 10;
-        } 
-        
-        if(Input.GetKeyDown(KeyCode.K)) {
-            Debug.Log('k');
-            currentHealth += 10;
-        }
-
-        if(currentHealth <= 0) {
-            currentHealth = 0;
-        }
-        if (currentHealth > maxHealth) {
-          currentHealth = maxHealth;
-        }
-        // Debug.Log(currentHealth);
-
-    }*/
 
     void Shoot()
     {
-        //Invoke("CastSpell", .6f);
         _anim.SetTrigger("SpellTrig");
         canShoot = false;
         Debug.Log("Shoot called");

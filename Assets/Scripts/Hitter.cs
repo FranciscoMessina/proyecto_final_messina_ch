@@ -7,7 +7,6 @@ public class Hitter : BaseEnemy
 {
     private float attackCooldown;
     private bool canAttack;
-    // private bool dead = false;
     public int dmg = 10;
 
     // Start is called before the first frame update
@@ -42,15 +41,5 @@ public class Hitter : BaseEnemy
         else if (canAttack == false && attackCooldown <= 0) canAttack = true;
     }
 
-    // private void OnTriggerStay(Collider other)
-    // {
-    //     if (other.gameObject.tag == "PlayerSpell" && dead == false)
-    //     {
-    //         TakeDamage(10);
-    //     }
-    // }
-
-
-    
 }
 

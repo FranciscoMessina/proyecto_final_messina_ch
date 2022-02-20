@@ -5,12 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {   
     public static GameManager instance;
-
     private int score;
     private OnDeathDrops onDeathDrops;
 
     
-
     public List<Caster> casterList = new List<Caster>();
 
     private PlayerController player;
@@ -34,10 +32,6 @@ public class GameManager : MonoBehaviour
         onDeathDrops = GetComponent<OnDeathDrops>();
     }
 
-    void Update()
-    {
-        
-    }
 
     public void SetPlayerReference(PlayerController player)
     {
