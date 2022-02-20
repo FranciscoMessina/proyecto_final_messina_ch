@@ -10,6 +10,7 @@ public class TorchManager : MonoBehaviour
     public void ChangeColor(Color color)
     {
         _ps.startColor = color;
+    
         Debug.Log("Color Changed to" + color);
     }
 

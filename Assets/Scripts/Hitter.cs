@@ -55,27 +55,5 @@ public class Hitter : BaseEnemy
     }
 
     
-
-    // public override void MoveToPlayer()
-    // {
-    //     base.MoveToPlayer();
-
-    //     if (distance < maxFollowDistance && distance >= minFollowDistance)
-    //     {
-    //         _anim.SetInteger("hAnim", 1);
-    //     }
-    //     else _anim.SetInteger("hAnim", 0);
-
-    // }
-
-    // private void Attack()
-    // {
-    //     if (distance < minFollowDistance)
-    //     {
-    //         _anim.SetTrigger("attack");
-    //         canAttack = false;
-    //         attackCooldown = attackDelay;
-    //     }
-    // }
 }
 

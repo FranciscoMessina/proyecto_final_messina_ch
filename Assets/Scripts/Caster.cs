@@ -24,6 +24,8 @@ public class Caster : BaseEnemy
         _anim = GetComponent<Animator>();
         _gm = GameManager.instance;
         _gm.AddCasterToArray(this);
+        Invoke("GetTarget", 0.1f);
+    
 
         spellSpeed = dataValues.spellSpeed;
         maxHealth = dataValues.casterHealth;
@@ -59,13 +61,9 @@ public class Caster : BaseEnemy
 
     public void Rotate()
     {
-
-        // Aca da un null reference y no entiendo porque. Antes de crear la clase base funcionaba, pero en los otros enemigos tiene la misma linea y sigue funcionando
         Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         _anim.SetFloat("rotate", 1);
-
-
     }
 
     
