@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOnScreen: 1.1
+  damage: 25
   _testsphere: {fileID: 0}
 --- !u!1 &8570723980899936283
 GameObject:

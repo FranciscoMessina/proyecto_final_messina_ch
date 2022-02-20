@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,6 @@ public class IceSpellBehaviour : MonoBehaviour
     [SerializeField] private float timeOnScreen;
     [SerializeField] private float damage = 35;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -41,7 +36,6 @@ public class IceSpellBehaviour : MonoBehaviour
                 break;
         }
     }
-
 
     private void ObjectDamage(Collider other)
     {

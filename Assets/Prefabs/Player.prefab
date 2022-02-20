@@ -529,7 +529,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228760360314697631}
-  m_LocalRotation: {x: -0.0025613382, y: 0.0014302612, z: -0.00023274406, w: 0.9999957}
+  m_LocalRotation: {x: -0.0025613233, y: 0.0014302444, z: -0.00023274137, w: 0.9999957}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1091,6 +1091,7 @@ MonoBehaviour:
   areaSpell: {fileID: 712808682357162713, guid: 274b656557f1ea44ca3d9f14076bff3a, type: 3}
   lives: 3
   maxHealth: 100
+  spawnLocation: {fileID: 0}
 --- !u!54 &2453227530044769655
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1212,7 +1213,7 @@ GameObject:
   - component: {fileID: 1786086755537138358}
   m_Layer: 7
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1651,7 +1652,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4671793735974724885}
-  m_LocalRotation: {x: -0.0011235774, y: 0.0021205673, z: -0.00034820678, w: 0.9999971}
+  m_LocalRotation: {x: -0.001123555, y: 0.0020095345, z: -0.00032997475, w: 0.9999973}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2847,7 +2848,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8802226268676113412}
-  m_LocalRotation: {x: -0.038884442, y: 0.0014377886, z: -0.0001806384, w: 0.9992427}
+  m_LocalRotation: {x: -0.038884424, y: 0.0014377658, z: -0.00018063557, w: 0.9992427}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

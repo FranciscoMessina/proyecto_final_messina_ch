@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6121953696520778008}
   - component: {fileID: 352955820570364934}
   - component: {fileID: 1904550063299181077}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 317545894397488522}
   - component: {fileID: 733015456943327674}
   - component: {fileID: 6946047185453661926}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3875502392174418003}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.011, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1908484074978037486}
@@ -4909,8 +4909,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1908484074978037486}
   - component: {fileID: 7973780043960522431}
-  - component: {fileID: 464783336710570211}
-  m_Layer: 10
+  - component: {fileID: -5513710147849401592}
+  - component: {fileID: 6362424678767828924}
+  m_Layer: 11
   m_Name: BloodSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4949,7 +4950,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &464783336710570211
+--- !u!114 &-5513710147849401592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4958,7 +4959,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7555963768277070994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d69e5a6f687874aad6d36fed785fb2, type: 3}
+  m_Script: {fileID: 11500000, guid: d4203fe3109dadb4aa539371c135a4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOnScreen: 5
+  damage: 35
+  maxLifeTime: 30
+--- !u!135 &6362424678767828924
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555963768277070994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
