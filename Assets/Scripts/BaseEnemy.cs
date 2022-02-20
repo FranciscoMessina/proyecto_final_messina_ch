@@ -26,14 +26,10 @@ public abstract class BaseEnemy : MonoBehaviour
     protected Animator _anim;
     protected float distanceToTarget;
     public int meleeDamage;
+    protected bool dead = false;
 
+    protected float currentHealth;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        startingLocation = transform.position;
-        randomSpot = Random.Range(0, patrolPoints.Length);
-    }
 
     protected virtual void EngageTarget()
     {
@@ -74,6 +70,25 @@ public abstract class BaseEnemy : MonoBehaviour
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+
+    public void Die()
+    {
+        dead = true;
+        _anim.SetTrigger("die");
+        Destroy(this.gameObject, 2.0f);
+        _gm.GenerateDrop(this.gameObject.transform.position);
+    }
+
+    public void TakeDamage(float dmg) 
+    {
+        currentHealth -= dmg;
+        isProvoked = true;
+
+        if(currentHealth <= 0 && dead == false)
+        {
+            Die();
+        }
     }
 
     // protected void Patrol()
