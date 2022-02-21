@@ -16,6 +16,9 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected Transform[] patrolPoints;
     [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected LayerMask enemiesLayer;
+    [SerializeField] protected AudioSource _as;
+    [SerializeField] protected AudioClip deathClip;
+    [SerializeField] protected AudioClip attackClip;
     protected NavMeshAgent navMeshAgent;
     protected bool isProvoked = false;
     protected Vector3 startingLocation;
@@ -43,6 +46,7 @@ public abstract class BaseEnemy : MonoBehaviour
         if(distanceToTarget <= navMeshAgent.stoppingDistance)
         {
             AttackTarget();
+
         }
 
     }
@@ -51,6 +55,8 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         _anim.SetInteger("animState", 2);
         _anim.SetTrigger("attack");
+        _as.clip = attackClip;
+        _as.Play();
     }
 
     protected void ChaseTarget()
@@ -80,6 +86,8 @@ public abstract class BaseEnemy : MonoBehaviour
         Destroy(this.gameObject, 3.0f);
         _gm.AddPoints(scoreOnDeath);
         _gm.GenerateDrop(this.gameObject.transform.position);
+        _as.clip = deathClip;
+        Invoke("PlaySound", 0.5f);
     }
 
     public void TakeDamage(float dmg) 
@@ -92,6 +100,11 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    private void PlaySound()
+    {
+        _as.Play();
     }
 
     // protected void Patrol()

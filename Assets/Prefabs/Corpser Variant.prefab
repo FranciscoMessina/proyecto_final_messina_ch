@@ -59,81 +59,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4365305, y: 1.7784489, z: 0.31014487}
   m_Center: {x: -0.0034723163, y: 0.89245474, z: -0.0115608815}
---- !u!95 &1546088832
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2972939766526787919}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: cd8482209e4a9cb4c9e5e657b34e89d2, type: 3}
-  m_Controller: {fileID: 9100000, guid: c982a26be41048846a50fbaabaa7fb66, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!195 &1422109823921175116
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2972939766526787919}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 3
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &5438723270121860919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2972939766526787919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459716ae8544edc478cb20d06ef7137d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  scoreOnDeath: 50
-  speed: 10
-  rotationSpeed: 5
-  chaseRange: 20
-  attackDelay: 3
-  raycastOrigin: {fileID: 0}
-  patrolPoints: []
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  enemiesLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  startWaitTime: 0
-  meleeDamage: 0
-  bloodSpell: {fileID: 7555963768277070994, guid: 10a7d95a8a6d0ad4c96fa385d5efeca6, type: 3}
-  spellSpeed: 30
-  spellSpawnPoint: {fileID: 9198289367424498305}
-  castDelay: 5
-  baseDmg: 0
-  dataValues: {fileID: 11400000, guid: a9c058215e5576946a25023b86fe6f96, type: 2}
 --- !u!82 &771930118124161520
 AudioSource:
   m_ObjectHideFlags: 0
@@ -230,6 +155,84 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1546088832
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2972939766526787919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: cd8482209e4a9cb4c9e5e657b34e89d2, type: 3}
+  m_Controller: {fileID: 9100000, guid: c982a26be41048846a50fbaabaa7fb66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &1422109823921175116
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2972939766526787919}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5438723270121860919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2972939766526787919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459716ae8544edc478cb20d06ef7137d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  scoreOnDeath: 50
+  speed: 10
+  rotationSpeed: 5
+  chaseRange: 20
+  attackDelay: 3
+  raycastOrigin: {fileID: 0}
+  patrolPoints: []
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _as: {fileID: 771930118124161520}
+  deathClip: {fileID: 8300000, guid: 3503ba1490cdb5b499a00165f92b9e3f, type: 3}
+  attackClip: {fileID: 0}
+  startWaitTime: 0
+  meleeDamage: 0
+  bloodSpell: {fileID: 7555963768277070994, guid: 10a7d95a8a6d0ad4c96fa385d5efeca6, type: 3}
+  spellSpeed: 30
+  spellSpawnPoint: {fileID: 9198289367424498305}
+  castDelay: 5
+  baseDmg: 0
+  dataValues: {fileID: 11400000, guid: a9c058215e5576946a25023b86fe6f96, type: 2}
 --- !u!1001 &2703119815538342942
 PrefabInstance:
   m_ObjectHideFlags: 0

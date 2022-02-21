@@ -29,80 +29,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5318351, y: 1.7477515, z: 0.47471008}
   m_Center: {x: 0, y: 0.90953535, z: 0}
---- !u!95 &549737844
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3675126178640670438}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1c639167582e80044a8e306af058689d, type: 3}
-  m_Controller: {fileID: 9100000, guid: a9cabccc75e79df4b9ee7f2b7a8130f4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1941978990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3675126178640670438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1521cd9a99c37349b028dfc2a9829ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  scoreOnDeath: 40
-  speed: 5
-  rotationSpeed: 5
-  chaseRange: 100
-  attackDelay: 2
-  raycastOrigin: {fileID: 5205313269822475303}
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  enemiesLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  startWaitTime: 10
-  meleeDamage: 30
-  dataValues: {fileID: 11400000, guid: 6536ad503cdc1944197ec0d57fd35806, type: 2}
---- !u!195 &1819136156358295603
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3675126178640670438}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 3
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!82 &-5133268149796673759
 AudioSource:
   m_ObjectHideFlags: 0
@@ -199,6 +125,83 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &549737844
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675126178640670438}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1c639167582e80044a8e306af058689d, type: 3}
+  m_Controller: {fileID: 9100000, guid: a9cabccc75e79df4b9ee7f2b7a8130f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1941978990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675126178640670438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1521cd9a99c37349b028dfc2a9829ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  scoreOnDeath: 40
+  speed: 5
+  rotationSpeed: 5
+  chaseRange: 100
+  attackDelay: 2
+  raycastOrigin: {fileID: 5205313269822475303}
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _as: {fileID: -5133268149796673759}
+  deathClip: {fileID: 8300000, guid: 3503ba1490cdb5b499a00165f92b9e3f, type: 3}
+  attackClip: {fileID: 8300000, guid: 698cf19648125e0449a267f54f1f091f, type: 3}
+  startWaitTime: 10
+  meleeDamage: 30
+  dataValues: {fileID: 11400000, guid: 6536ad503cdc1944197ec0d57fd35806, type: 2}
+--- !u!195 &1819136156358295603
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675126178640670438}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7313743699980091047
 GameObject:
   m_ObjectHideFlags: 0
