@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 8;
     [SerializeField] private float sideSpeed = 6;
+    [SerializeField] private AudioSource _as;
+    [SerializeField] private AudioClip areaSpellSound;
+    [SerializeField] private AudioClip iceSpellSound;
     private Rigidbody _rb;
     //private CinemachineTouchInputMapper _cM;
     private float vInput;
@@ -80,6 +83,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1") && canShoot && !isCasting)
         {
             Shoot();
+            _as.clip = iceSpellSound;
+            PlaySound();
             shootTimer = shootDelay;
             isCasting = true;
         }
@@ -87,6 +92,8 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButton("Fire2") && canArea && !isCasting)
         {
             Area();
+            _as.clip = areaSpellSound;
+            Invoke("PlaySound", .7f);
             areaTimer = areaDelay;
             isCasting = true;
         }
@@ -206,6 +213,11 @@ public class PlayerController : MonoBehaviour
         _anim.SetTrigger("DeathTrig");
         isCasting = true;
         _gb.Die();
+    }
+
+    private void PlaySound()
+    {
+        _as.Play();
     }
 
 

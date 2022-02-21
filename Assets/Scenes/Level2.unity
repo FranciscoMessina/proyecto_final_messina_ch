@@ -4220,15 +4220,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 160961184251457703, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0025611818
+      value: -0.0025611892
       objectReference: {fileID: 0}
     - target: {fileID: 160961184251457703, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0014301557
+      value: 0.001430185
       objectReference: {fileID: 0}
     - target: {fileID: 160961184251457703, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00023272714
+      value: -0.00023273188
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4250,18 +4250,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2453227530044769655, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2453227530044769655, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 2453227530044769655, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 2453227530044769654, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
+      propertyPath: _gb
+      value: 
+      objectReference: {fileID: 108881968}
+    - target: {fileID: 2453227530044769654, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
+      propertyPath: IceSpellSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b1f21b2558aa10469a0025616d4539c, type: 3}
+    - target: {fileID: 2453227530044769654, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
+      propertyPath: AreaSpellSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 54a3b8c17d4d5584693b8edb026747f4, type: 3}
     - target: {fileID: 2697880015721267988, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.6

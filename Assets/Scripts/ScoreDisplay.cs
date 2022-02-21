@@ -8,6 +8,14 @@ public class ScoreDisplay : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] GameBehaviour gameBehaviour;
 
+
+    private void Start()
+    {
+        if (gameBehaviour == null)
+        {
+            gameBehaviour = FindObjectOfType<GameBehaviour>();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
