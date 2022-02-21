@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public abstract class BaseEnemy : MonoBehaviour
 {
     [SerializeField] protected float maxHealth = 100;
+    [SerializeField] protected int scoreOnDeath = 25;
     [SerializeField] protected float speed = 10;
     [SerializeField] protected float rotationSpeed = 10;
     [SerializeField] protected float chaseRange = 20;
@@ -76,7 +77,8 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         dead = true;
         _anim.SetTrigger("die");
-        Destroy(this.gameObject, 2.0f);
+        Destroy(this.gameObject, 3.0f);
+        _gm.AddPoints(scoreOnDeath);
         _gm.GenerateDrop(this.gameObject.transform.position);
     }
 

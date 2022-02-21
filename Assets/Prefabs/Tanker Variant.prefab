@@ -61,9 +61,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  scoreOnDeath: 40
   speed: 5
   rotationSpeed: 5
-  chaseRange: 20
+  chaseRange: 100
   attackDelay: 2
   raycastOrigin: {fileID: 5205313269822475303}
   patrolPoints:
@@ -142,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5384597300615516783}
   - component: {fileID: 8316118270425419206}
+  - component: {fileID: 95388712}
   m_Layer: 11
   m_Name: HandCollider
   m_TagString: Tanker
@@ -176,6 +178,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1736933, y: 0.2583178, z: 0.13096453}
   m_Center: {x: -0.013985871, y: 0.10465292, z: 0.006907232}
+--- !u!114 &95388712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8753175336351643977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1887bde4293cea047a284c9d3750a8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4594166504480609207
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public List<Caster> casterList = new List<Caster>();
 
     private PlayerController player;
+    private GameBehaviour _gb;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         onDeathDrops = GetComponent<OnDeathDrops>();
+        
     }
 
 
@@ -38,6 +40,10 @@ public class GameManager : MonoBehaviour
         this.player = player;
     }
 
+    public void SetGameBehaviorReference(GameBehaviour gb)
+    {
+        this._gb = gb;
+    }
     public PlayerController GetPlayerReference() {
         return this.player;
     }
@@ -68,5 +74,10 @@ public class GameManager : MonoBehaviour
         GameObject newDrop = Instantiate(onDeathDrops.getDrop(), spawnLocation /*+ (transform.up * 4)*/, new Quaternion()) as GameObject;
         Debug.Log(newDrop.name);
         //Instantiate(newDrop, location);
+    }
+
+    public void AddPoints(int pointsToAdd)
+    {
+        _gb.Points += pointsToAdd;
     }
 }
