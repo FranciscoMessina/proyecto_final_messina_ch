@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class ScoreDisplay : MonoBehaviour
 {
     [SerializeField] Text scoreText;
-    [SerializeField] GameBehaviour gamebeh;
+    [SerializeField] GameBehaviour gameBehaviour;
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = $"SCORE: {gamebeh.Points}";
+        scoreText.text = $"SCORE: {gameBehaviour.Points}";
     }
 }
 

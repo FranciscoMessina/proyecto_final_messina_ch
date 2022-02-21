@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class GameBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public bool showWinScreen = false;
-    public bool showLooseScreen = false;
     private int pts;
     [SerializeField] private int pointsToNextLevel;
     private string labelText;
