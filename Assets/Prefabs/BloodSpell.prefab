@@ -4909,7 +4909,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1908484074978037486}
   - component: {fileID: 7973780043960522431}
-  - component: {fileID: 464783336710570211}
+  - component: {fileID: 4960213328793120356}
+  - component: {fileID: 7436812865232490293}
   m_Layer: 10
   m_Name: BloodSpell
   m_TagString: Untagged
@@ -4949,7 +4950,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &464783336710570211
+--- !u!114 &4960213328793120356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4958,8 +4959,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7555963768277070994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d69e5a6f687874aad6d36fed785fb2, type: 3}
+  m_Script: {fileID: 11500000, guid: d4203fe3109dadb4aa539371c135a4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOnScreen: 5
   damage: 35
+  maxLifeTime: 30
+--- !u!135 &7436812865232490293
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555963768277070994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
