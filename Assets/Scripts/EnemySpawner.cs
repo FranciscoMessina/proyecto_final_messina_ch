@@ -7,11 +7,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject tankerPrefab;
     [SerializeField] GameObject hitterPrefab;
     [SerializeField] GameObject casterPrefab;
-
-    [SerializeField] int tankerAmount = 1;
-    [SerializeField] int hitterAmount = 1;
-    [SerializeField] int casterAmount = 1;
-
     [SerializeField] float timeBetweenSpawnWaves = 5;
 
     float spawnDelay;
