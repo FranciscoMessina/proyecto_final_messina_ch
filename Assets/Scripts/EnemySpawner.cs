@@ -21,43 +21,53 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         spawnDelay = timeBetweenSpawnWaves;
-        int randomNumber = Random.Range(0, spawnPoints.Length);
-        int randomNumber2 = Random.Range(0, spawnPoints.Length);
-        int randomNumber3 = Random.Range(0, spawnPoints.Length);
-        if (tankerAmount > 0) {
-            Instantiate(tankerPrefab, spawnPoints[randomNumber]);
-            tankerAmount--;
-        }
-        if (hitterAmount > 0) {
-            Instantiate(hitterPrefab, spawnPoints[randomNumber2]);
-            hitterAmount--;
-        }
-        if (casterAmount > 0) {
-            Instantiate(casterPrefab, spawnPoints[randomNumber3]);
-            casterAmount--;
+
+        int i = 0;
+        foreach (var location in spawnPoints) {
+            switch (i) {
+                    case 0:
+                        Instantiate(hitterPrefab, location);
+                        break;
+                    case 1:
+                        Instantiate(tankerPrefab, location);
+                        break;
+                    case 2:
+                        Instantiate(casterPrefab, location);
+                        break;
+                    default:
+                        Debug.Log("Paso algo raro, esto no deberia salir");
+                        break;
+                }
+            i++;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        int randomNumber = Random.Range(0, spawnPoints.Length);
-        int randomNumber2 = Random.Range(0, spawnPoints.Length);
-        int randomNumber3 = Random.Range(0, spawnPoints.Length);
+        int enemyNum = Random.Range(0, 3);
+
 
         if(spawnDelay <= 0) {
-            if (tankerAmount > 0) {
-                Instantiate(tankerPrefab, spawnPoints[randomNumber]);
-                tankerAmount--;
+            foreach (var location in spawnPoints)
+            {
+                switch (enemyNum) {
+                    case 0:
+                        Instantiate(hitterPrefab, location);
+                        break;
+                    case 1:
+                        Instantiate(tankerPrefab, location);
+                        break;
+                    case 2:
+                        Instantiate(casterPrefab, location);
+                        break;
+                    default:
+                        Debug.Log("Paso algo raro, esto no deberia salir");
+                        break;
+                     
+                }
             }
-            if (hitterAmount > 0) {
-                Instantiate(hitterPrefab, spawnPoints[randomNumber2]);
-                hitterAmount--;
-            }
-            if (casterAmount > 0) {
-                Instantiate(casterPrefab, spawnPoints[randomNumber3]);
-                casterAmount--;
-            }
+       
             spawnDelay = timeBetweenSpawnWaves;
         } else {
             spawnDelay -= Time.deltaTime;
