@@ -25,8 +25,9 @@ public class Caster : BaseEnemy
         _gm.AddCasterToArray(this);
         Invoke("GetTarget", 0.1f);
 
-        startingLocation = transform.position;
-        randomSpot = Random.Range(0, patrolPoints.Length);
+        // For patrol behaviour.
+        // startingLocation = transform.position;
+        // randomSpot = Random.Range(0, patrolPoints.Length);
     
 
         currentHealth = maxHealth;
@@ -53,7 +54,7 @@ public class Caster : BaseEnemy
 
     private void FixedUpdate()
     {
-        Rotate();
+        FaceTarget();
         if (canCast == true)
         {
             Cast();
@@ -62,10 +63,9 @@ public class Caster : BaseEnemy
         }
     }
 
-    public void Rotate()
+    public override void FaceTarget()
     {
-        Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        base.FaceTarget();
         _anim.SetFloat("rotate", 1);
     }
 

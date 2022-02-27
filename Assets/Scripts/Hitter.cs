@@ -19,8 +19,8 @@ public class Hitter : BaseEnemy
         currentHealth = maxHealth;
 
 
-        startingLocation = transform.position;
-        randomSpot = Random.Range(0, patrolPoints.Length);
+        // startingLocation = transform.position;
+        // randomSpot = Random.Range(0, patrolPoints.Length);
     }
 
     // Update is called once per frame

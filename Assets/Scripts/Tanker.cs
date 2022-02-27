@@ -18,8 +18,8 @@ public class Tanker : BaseEnemy
     // Start is called before the first frame update
     void Start()
     {
-        startingLocation = transform.position;
-        randomSpot = Random.Range(0, patrolPoints.Length);
+        // startingLocation = transform.position;
+        // randomSpot = Random.Range(0, patrolPoints.Length);
 
 
         _anim = GetComponent<Animator>();

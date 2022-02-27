@@ -6,7 +6,6 @@ public class EnemyMeleeDetector : MonoBehaviour
 {
     private GameManager _gm;
     private int dmg;
-    private PlayerController player;
     private bool canHit = true;
     private float hitDelay = 1.5f;
     private float hitTimer;

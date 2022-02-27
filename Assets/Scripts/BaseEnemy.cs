@@ -10,10 +10,7 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected float speed = 10;
     [SerializeField] protected float rotationSpeed = 10;
     [SerializeField] protected float chaseRange = 20;
-    [SerializeField] protected float attackDelay = 3;
     [SerializeField] protected Transform raycastOrigin;
-    //[SerializeField] protected OnDeathDrops onDeathDrops;
-    [SerializeField] protected Transform[] patrolPoints;
     [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected LayerMask enemiesLayer;
     [SerializeField] protected AudioSource _as;
@@ -21,17 +18,18 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected AudioClip attackClip;
     protected NavMeshAgent navMeshAgent;
     protected bool isProvoked = false;
-    protected Vector3 startingLocation;
-    protected int randomSpot;
-    protected float waitTime;
-    public float startWaitTime;
+    // For PATROL behaviour on hold for now.
+    // [SerializeField] protected Transform[] patrolPoints;
+    // protected Vector3 startingLocation;
+    // protected int randomSpot;
+    // protected float waitTime;
+    // public float startWaitTime;
     protected Transform target;
     protected GameManager _gm;
     protected Animator _anim;
     protected float distanceToTarget;
     public int meleeDamage;
     protected bool dead = false;
-
     protected float currentHealth;
 
 
@@ -46,7 +44,6 @@ public abstract class BaseEnemy : MonoBehaviour
         if(distanceToTarget <= navMeshAgent.stoppingDistance)
         {
             AttackTarget();
-
         }
 
     }
@@ -65,10 +62,9 @@ public abstract class BaseEnemy : MonoBehaviour
         _anim.SetInteger("animState", 1);
          
         navMeshAgent.SetDestination(target.position);
-        
     }
 
-    protected void FaceTarget() {
+    public virtual void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
@@ -106,32 +102,6 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         _as.Play();
     }
-
-    // protected void Patrol()
-    // {
-    //     MoveToDestination(patrolPoints[randomSpot].position);
-    //     // Debug.Log("Patrol Called");
-
-    //     if(Vector3.Distance(transform.position, patrolPoints[randomSpot].position) < 1f) {
-    //         if(waitTime <= 0) {
-    //             randomSpot = Random.Range(0, patrolPoints.Length);
-    //         } else {
-    //             waitTime -= Time.deltaTime;
-    //         }
-    //     }
-    // }
-
-    // protected bool DetectPlayer()
-    // {
-    //     //RaycastHit hit;
-    //     var direction = (target.position - transform.position).normalized;
-
-    //     var collidedWithPlayer = Physics.Raycast(raycastOrigin.position, direction, /*out hit,*/ maxFollowDistance, playerLayer);
-    //     if(collidedWithPlayer) Debug.Log("Player Detected:" + collidedWithPlayer);
-
-    //     return collidedWithPlayer;
-    // }
-
 
     protected void GetTarget() {
         target = _gm.GetPlayerReference().transform;
