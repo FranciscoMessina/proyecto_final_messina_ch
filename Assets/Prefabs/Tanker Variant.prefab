@@ -161,13 +161,7 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   chaseRange: 100
-  attackDelay: 2
   raycastOrigin: {fileID: 5205313269822475303}
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -177,7 +171,6 @@ MonoBehaviour:
   _as: {fileID: -5133268149796673759}
   deathClip: {fileID: 8300000, guid: 3503ba1490cdb5b499a00165f92b9e3f, type: 3}
   attackClip: {fileID: 8300000, guid: 698cf19648125e0449a267f54f1f091f, type: 3}
-  startWaitTime: 10
   meleeDamage: 30
   dataValues: {fileID: 11400000, guid: 6536ad503cdc1944197ec0d57fd35806, type: 2}
 --- !u!195 &1819136156358295603
@@ -225,9 +218,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7313743699980091047}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.147, y: 0.936, z: -2.0880625}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.921, z: 0.014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4056471563974603868}
   m_RootOrder: 2

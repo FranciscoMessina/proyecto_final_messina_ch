@@ -86,15 +86,17 @@ public class Tanker : BaseEnemy
     {
         //the idea here is to find a Caster near, to back away and get healed
         foreach (Caster c in _gm.casterList) {
+            var direction = (c.transform.position - transform.position).normalized;
        
             RaycastHit hit;
-            Collider casterCollider = c.GetComponent<Collider>(); ;
-            Physics.Raycast(raycastOrigin.position, c.transform.position, out hit, chaseRange, enemiesLayer);
-            Debug.Log(hit.collider.CompareTag("Caster"));
+            Collider casterCollider = c.GetComponent<Collider>(); 
+            Physics.Raycast(raycastOrigin.position, direction, out hit, chaseRange, enemiesLayer);
+            Debug.Log(hit.collider);
             if (hit.collider == casterCollider) { 
                 healerTarget = c.transform; 
                 Debug.Log("Caste hit");
                 return true;
+                
             } else {
                 return false;
             }
