@@ -6,11 +6,10 @@ using UnityEngine.AI;
 public class Tanker : BaseEnemy
 {
     private Transform healerTarget;
-    // private float currentHealth;
     private float attackCooldown;
     private bool canAttack;
     private float damage;
-    // private bool dead = false;
+
 
     [SerializeField] private TankerData dataValues;
 
@@ -39,8 +38,8 @@ public class Tanker : BaseEnemy
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position);
 
-        if(currentHealth < maxHealth / 2) {
-            if(DetectCaster()) {
+        if(currentHealth < maxHealth) {
+            if(DetectCaster() && healerTarget) {
                 FallBack();
             }
         } else {
@@ -60,7 +59,6 @@ public class Tanker : BaseEnemy
 
     public void FallBack()
     {
-        var direction = (healerTarget.position - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(healerTarget.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
@@ -88,12 +86,14 @@ public class Tanker : BaseEnemy
     {
         //the idea here is to find a Caster near, to back away and get healed
         foreach (Caster c in _gm.casterList) {
-            Debug.Log("Caster raycast");
+       
             RaycastHit hit;
             Collider casterCollider = c.GetComponent<Collider>(); ;
-            Physics.Raycast(transform.position, c.transform.position, out hit, chaseRange, enemiesLayer);
+            Physics.Raycast(raycastOrigin.position, c.transform.position, out hit, chaseRange, enemiesLayer);
+            Debug.Log(hit.collider.CompareTag("Caster"));
             if (hit.collider == casterCollider) { 
                 healerTarget = c.transform; 
+                Debug.Log("Caste hit");
                 return true;
             } else {
                 return false;
