@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour
         {
             canArea = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) _gb.PauseGame();
     }
 
     void FixedUpdate()

@@ -17,6 +17,8 @@ public class GameBehaviour : MonoBehaviour
     [SerializeField] Animator gameOver;
     [SerializeField] Animator fade;
 
+    [SerializeField] Canvas _pause;
+
     public int Points
     {
         get { return pts; }
@@ -59,5 +61,19 @@ public class GameBehaviour : MonoBehaviour
     private void FadeOut()
     {
         fade.SetTrigger("FadeOut");
+    }
+
+    public void PauseGame()
+    {
+        if (Time.timeScale == 1f)
+        {
+            _pause.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else if (Time.timeScale == 0f)
+        {
+            Time.timeScale = 1f;
+            _pause.gameObject.SetActive(false);
+        }
     }
 }
