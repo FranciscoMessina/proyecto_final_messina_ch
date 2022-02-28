@@ -18,6 +18,7 @@ public class GameBehaviour : MonoBehaviour
     [SerializeField] Animator fade;
 
     [SerializeField] Canvas _pause;
+    private bool isPaused;
 
     public int Points
     {
@@ -36,6 +37,7 @@ public class GameBehaviour : MonoBehaviour
     {
         _gm = GameManager.instance;
         _gm.SetGameBehaviorReference(this);
+        isPaused = false;
     }
 
 
@@ -65,12 +67,13 @@ public class GameBehaviour : MonoBehaviour
 
     public void PauseGame()
     {
-        if (Time.timeScale == 1f)
+        isPaused = !isPaused;
+        if (!isPaused)
         {
             _pause.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
-        else if (Time.timeScale == 0f)
+        else if (isPaused)
         {
             Time.timeScale = 1f;
             _pause.gameObject.SetActive(false);
