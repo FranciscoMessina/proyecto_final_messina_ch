@@ -13,7 +13,7 @@ public class VignetteBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("está corriendo");
+        Debug.Log("estï¿½ corriendo");
         _gm = GameManager.instance;
         player = _gm.GetPlayerReference();
         bool encontro = volume.profile.TryGetSettings(out _vignette);
