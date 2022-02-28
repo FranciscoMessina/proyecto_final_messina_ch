@@ -80,4 +80,6 @@ public class GameManager : MonoBehaviour
     {
         _gb.Points += pointsToAdd;
     }
+
+    
 }
