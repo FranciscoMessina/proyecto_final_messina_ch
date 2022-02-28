@@ -3251,7 +3251,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577389319}
-  m_LocalRotation: {x: 0.08072619, y: -0.0020758372, z: 0.0001681235, w: 0.99673414}
+  m_LocalRotation: {x: 0.08072618, y: -0.0021875922, z: 0.0001771758, w: 0.9967339}
   m_LocalPosition: {x: -31.85, y: 12.24, z: -100.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4040,6 +4040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corpser Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2972939766526787919, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdfda1a4279bb304f9eaa86a5eb301ae, type: 3}
 --- !u!1001 &761712883
@@ -4705,11 +4709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120262912436394608, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0020758372
+      value: -0.0021875922
       objectReference: {fileID: 0}
     - target: {fileID: 120262912436394608, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0001681235
+      value: 0.0001771758
       objectReference: {fileID: 0}
     - target: {fileID: 160961184251457703, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4745,11 +4749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0021205444
+      value: 0.0020099052
       objectReference: {fileID: 0}
     - target: {fileID: 1003170529329865923, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00034820318
+      value: -0.0003300356
       objectReference: {fileID: 0}
     - target: {fileID: 2453227530044769608, guid: 72408d7bcc09c1043b038cfec3149ef9, type: 3}
       propertyPath: m_Name
@@ -5561,6 +5565,10 @@ PrefabInstance:
     - target: {fileID: 3675126178640670438, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
       propertyPath: m_Name
       value: Tanker Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675126178640670438, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4056471563974603868, guid: dcaf14c0557b48a45a00d848ecb21003, type: 3}
       propertyPath: m_RootOrder
@@ -7148,6 +7156,10 @@ PrefabInstance:
     - target: {fileID: 8606451209864762604, guid: bf373c2c90eeb7748b1ffa346bd19ff0, type: 3}
       propertyPath: m_Name
       value: Hitter Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8606451209864762604, guid: bf373c2c90eeb7748b1ffa346bd19ff0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8951908570359139926, guid: bf373c2c90eeb7748b1ffa346bd19ff0, type: 3}
       propertyPath: m_RootOrder
