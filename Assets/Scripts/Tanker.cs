@@ -38,33 +38,40 @@ public class Tanker : BaseEnemy
     void Update()
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if(isProvoked)
-        {
-            EngageTarget();
-        } 
-        else if (distanceToTarget <= chaseRange)
-        {
-            isProvoked = true;
+
+        if(currentHealth < maxHealth / 2) {
+            if(DetectCaster()) {
+                FallBack();
+            }
+        } else {
+            if(isProvoked)
+            {
+                EngageTarget();
+            } 
+            else if (distanceToTarget <= chaseRange)
+            {
+                isProvoked = true;
+            }
         }
 
         if (canAttack == false && attackCooldown >= 0) attackCooldown -= Time.deltaTime;
         else if (canAttack == false && attackCooldown <= 0) canAttack = true;
     }
 
-    // public void FallBack()
-    // {
-    //     var direction = (healerTarget.position - transform.position).normalized;
-    //     Quaternion rotation = Quaternion.LookRotation(healerTarget.position - transform.position);
-    //     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+    public void FallBack()
+    {
+        var direction = (healerTarget.position - transform.position).normalized;
+        Quaternion rotation = Quaternion.LookRotation(healerTarget.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-    //     if (distance < maxFollowDistance && distance >= minFollowDistance)
-    //     {
-    //         _anim.SetInteger("tAnim", 1);
-    //         transform.position += direction * speed * Time.deltaTime;
-    //     }
-    //     else _anim.SetInteger("tAnim", 0);
+        if (distanceToTarget < chaseRange && distanceToTarget >= navMeshAgent.stoppingDistance)
+        {
+            _anim.SetInteger("animState", 1);
+            navMeshAgent.SetDestination(healerTarget.position);
+        }
+        else _anim.SetInteger("animState", 0);
 
-    // }
+    }
 
     // private bool DetectPlayer()
     // {
@@ -77,16 +84,24 @@ public class Tanker : BaseEnemy
     //     return collidedWithPlayer;
     // }
 
-    // private void DetectCaster()
-    // {
-    //     //the idea here is to find a Caster near, to back away and get healed
-    //     foreach (Caster c in _gm.casterList) {
-    //         RaycastHit hit;
-    //         Collider casterCollider = c.GetComponent<Collider>(); ;
-    //         Physics.Raycast(transform.position, c.transform.position, out hit, maxFollowDistance, enemiesLayer);
-    //         if (hit.collider == casterCollider) { healerTarget = c.transform; break; }
-    //     };
+    private bool DetectCaster()
+    {
+        //the idea here is to find a Caster near, to back away and get healed
+        foreach (Caster c in _gm.casterList) {
+            Debug.Log("Caster raycast");
+            RaycastHit hit;
+            Collider casterCollider = c.GetComponent<Collider>(); ;
+            Physics.Raycast(transform.position, c.transform.position, out hit, chaseRange, enemiesLayer);
+            if (hit.collider == casterCollider) { 
+                healerTarget = c.transform; 
+                return true;
+            } else {
+                return false;
+            }
+        };
 
-    // }
+        return false;
+
+    }
 }
 
